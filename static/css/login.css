@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to bottom, #0d0d0d, #0d0d0d);
+    height: 100vh;
+}
+
+#welcome {
+    color: #09DCB5;
+}
+
+#email,
+#password {
+    background-color: rgb(228, 228, 235);
+}
+
+.input-group-text {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* Ensure the input field has no border-radius on the left side */
+.form-control {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+#rightside {
+    background: linear-gradient(to bottom, #09DCB5, #999999);
+}
+
+button {
+    width: 80%;
+    padding: 10px;
+    background-color: #3de2c5;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #33b9a3;
+}
+
+#forgotpass,
+#showpass {
+    color: black;
+}
+
+#forgotpass:hover,
+#showpass:hover {
+    color: #33b9a3;
+}
+
+#email,
+#password {
+    border-width: 3px;
+}
+
+
+#section1 {
+    padding-top: 150px;
+    padding-bottom: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    #rightside {
+        display: none;
+    }
+}

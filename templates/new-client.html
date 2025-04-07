@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>SPECTR</title>
+
+    <link
+      rel="shortcut icon"
+      href="../static/images/logo/SPECTR-logo-new.png"
+      type="image/x-icon"
+    />
+
+    <!-- BOOTSTRAP CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+
+    <!-- DATA TABLE CSS (Bootstrap Integration) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css"
+    />
+
+    <!-- Font Awesome -->
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+    ></script>
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+    ></script>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../static/css/client.css" />
+
+    <!--Chart-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+
+    <!-- CryptoJS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"
+      integrity="sha512-a+SUDuwNzXDvz4XrIcXHuCf089/iJAoN4lmrXJg18XnduKK6YlDHNRalv4yd1N40OKI80tFidF+rqTFKGPoWFQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- SIDEBAR -->
+      <nav
+        id="sidebar"
+        class="d-flex flex-column justify-content-between"
+        style="background-color: #0b0b14"
+      >
+        <ul
+          class="list-unstyled components px-3 border-0"
+          style="background-color: #0b0b14"
+        >
+          <!--LOGO-->
+          <a
+            href="/client"
+            class="d-flex align-items-center p-3 mb-md-0 me-md-auto text-white text-decoration-none"
+          >
+            <img
+              src="../static/images/logo/SPECTR-logo-new-without-S.png"
+              height="70"
+              alt="SPECTR"
+            />
+          </a>
+          <!--NAV ITEMS-->
+          <ul
+            class="list-unstyled nav nav-pills flex-column mb-sm-auto mb-2 align-items-start"
+            id="menu"
+          >
+            <!--Dashboard-->
+            <li class="event-link mt-5 w-100" data-content="content1">
+              <a href="#content1" class="active-menu nav-link">
+                <i class="fs-4 bi bi-bar-chart"></i
+                ><span class="ms-1 d-sm-inline">Dashboard</span>
+              </a>
+            </li>
+
+            <!--Detection-->
+            <li class="event-link w-100 mt-2" data-content="content2">
+              <a href="#content2" class="nav-link">
+                <i class="fs-4 bi bi-camera-video"></i>
+                <span class="ms-1 d-sm-inline">Detection</span>
+              </a>
+            </li>
+            <!--Reports-->
+            <li class="event-link w-100 mt-2" data-content="content3">
+              <a href="#content3" class="nav-link align-middle">
+                <i class="fs-4 bi-clock-history"></i>
+                <span class="ms-1 d-sm-inline">History</span>
+              </a>
+            </li>
+            <li class="event-link w-100 mt-2" data-content="content4">
+              <a href="#content4" class="nav-link align-middle">
+                <i class="fs-4 bi bi-people"></i>
+                <span class="ms-1 d-sm-inline">Accounts</span>
+              </a>
+            </li>
+          </ul>
+        </ul>
+
+        <!--Profile/Sign out btn-->
+        <div class="dropdown pb-4 mx-3">
+          <a
+            href="#"
+            class="d-flex align-items-center text-white text-decoration-none dropdown-toggle px-3"
+            id="dropdownUser1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              src="../static/images/staff-profile.png"
+              alt="hugenerd"
+              width="30"
+              height="30"
+              class="rounded-circle"
+            />
+            <span class="d-none d-sm-inline mx-3" id="user_firstname"
+              >User</span
+            >
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-dark text-small shadow rounded-4 p-0"
+          >
+            <li id="profile-logout">
+              <div class="d-flex justify-content-center align-items-center">
+                <i class="bi bi-box-arrow-right ms-3"></i>
+                <a
+                  class="dropdown-item"
+                  id="signoutbutton"
+                  style="cursor: pointer"
+                  >Sign out</a
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div id="content">
+        <button
+          type="button"
+          id="sidebarCollapse"
+          class="btn btn-dark hamburger"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!--CONTENT 1: DASHBOARD-->
+        <div id="content1" class="content-item" data-title="Dashboard">
+          <div class="inner-content">
+            <div class="row align-items-center">
+              <div
+                class="d-flex flex-column flex-sm-row justify-content-between w-100 mt-3"
+              >
+                <h2 class="fw-bolder">Dashboard</h2>
+                <div class="d-flex align-items-center">
+                  <i class="fa-regular fa-calendar-days me-2"></i>
+                  <p id="currentDate" class="mb-0"></p>
+                </div>
+              </div>
+            </div>
+
+            <!--DETECTION PER MONTH / DONUT GRAPH-->
+            <div class="row">
+              <div class="col-xxl-8 mb-3 mt-3">
+                <div
+                  class="card rounded-4 border-1 solid shadow"
+                  id="detectionpermonthBG"
+                >
+                  <div
+                    id="detectionpermonthheader"
+                    class="card-header rounded-top-4"
+                  >
+                    <div class="d-flex align-items-center py-3">
+                      <p
+                        class="fw-bolder fs-5 d-flex align-items-center text-nowrap"
+                      >
+                        <i class="fa-solid fa-chart-bar me-2"></i>
+                        Detection Per Month
+                      </p>
+                    </div>
+                  </div>
+                  <div class="p-4" id="detectionPerMonth"></div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6 mt-3" style="height: 100vh">
+                <div class="row">
+                  <div class="col">
+                    <div
+                      class="card rounded-4 border-1 solid shadow"
+                      id="shopliftingBG"
+                    >
+                      <div
+                        id="shopliftingheader"
+                        class="card-header rounded-top-4"
+                      >
+                        <div class="d-flex align-items-center py-3">
+                          <p
+                            class="fw-bolder text-start fs-5 d-flex align-items-center text-nowrap"
+                          >
+                            <i class="fa-solid fa-building me-2"></i>
+                            Company Info
+                          </p>
+                        </div>
+                      </div>
+                      <div class="p-4">
+                        <table class="table table-responsive">
+                          <tr class="mt-2">
+                            <td class="text-start">Company Name:</td>
+                            <td
+                              class="text-start fw-light"
+                              id="displayCompanyName"
+                            >
+                              None
+                            </td>
+                          </tr>
+                          <tr class="mt-2">
+                            <td class="text-start">Company Branch:</td>
+                            <td
+                              class="text-start fw-light"
+                              id="displayCompanyBranch"
+                            >
+                              None
+                            </td>
+                          </tr>
+                          <tr class="mt-2">
+                            <td class="text-start">
+                              Company Telephone Number:
+                            </td>
+                            <td
+                              class="text-start fw-light"
+                              id="displayCompanyTelephoneNo"
+                            >
+                              None
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mt-4">
+                  <div class="col">
+                    <div
+                      class="card rounded-4 border-1 solid shadow"
+                      id="shopliftingBG"
+                    >
+                      <div
+                        id="shopliftingheader"
+                        class="card-header rounded-top-4"
+                      >
+                        <div class="d-flex align-items-center py-3">
+                          <p
+                            class="fw-bolder text-start fs-5 d-flex align-items-center text-nowrap"
+                          >
+                            <i class="fa-solid fa-list me-2"></i>
+                            Shoplift Detected
+                          </p>
+                        </div>
+                      </div>
+                      <p
+                        id="shopliftingCount"
+                        class="fw-semibold fs-1 py-3 text-center mt-3"
+                      >
+                        0
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detection Logs Section -->
+        <div class="container mt-5">
+          <div
+            id="detectionAlert"
+            class="alert alert-danger"
+            style="display: none"
+          >
+            <p><strong>Alert!</strong> <span id="camera-label"></span>!</p>
+          </div>
+        </div>
+
+        <!--CONTENT 2: DETECTION-->
+        <div id="content2" class="content-item" data-title="Detection">
+          <div class="inner-content mt-3">
+            <div class="container-fluid">
+              <ul class="nav nav-tabs gap-2 mb-3">
+                <li class="nav-item">
+                  <a
+                    class="nav-link active"
+                    aria-current="page"
+                    data-bs-toggle="tab"
+                    href="#all-cam"
+                    >All</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    id="Cam1"
+                    class="nav-link"
+                    aria-current="page"
+                    data-bs-toggle="tab"
+                    href="#cam1"
+                    >Camera 1</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    id="Cam2"
+                    class="nav-link"
+                    aria-current="page"
+                    data-bs-toggle="tab"
+                    href="#cam2"
+                    >Camera 2</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    id="Cam3"
+                    class="nav-link"
+                    aria-current="page"
+                    data-bs-toggle="tab"
+                    href="#cam3"
+                    >Camera 3</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a
+                    id="Cam4"
+                    class="nav-link"
+                    aria-current="page"
+                    data-bs-toggle="tab"
+                    href="#cam4"
+                    tabindex="-1"
+                    >Camera 4</a
+                  >
+                </li>
+              </ul>
+
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="all-cam">
+                  <div class="d-flex flex-column flex-md-row flex-sm-row">
+                    <div class="col webcam-container block p-1 m-0">
+                      <img
+                        id="webcam1"
+                        data-rtsp="rtsp://admin:Hikvision@192.168.137.2:554/Streaming/Channels/101"
+                        src="../static/images/nosignal.jpg"
+                        alt="Webcam 1"
+                        class="img-fluid camera-frame"
+                      />
+                    </div>
+                    <div class="col webcam-container block p-1 m-0">
+                      <img
+                        id="webcam2"
+                        data-rtsp="rtsp://admin:Hikvision@192.168.137.2:554/Streaming/Channels/201"
+                        src="../static/images/nosignal.jpg"
+                        alt="Webcam 2"
+                        class="img-fluid camera-frame"
+                      />
+                    </div>
+                  </div>
+                  <div class="d-flex flex-column flex-md-row flex-sm-row">
+                    <div class="col webcam-container block p-1 m-0">
+                      <img
+                        id="webcam3"
+                        data-rtsp="rtsp://admin:Hikvision@192.168.137.2:554/Streaming/Channels/301"
+                        src="../static/images/nosignal.jpg"
+                        alt="Webcam 3 "
+                        class="img-fluid camera-frame"
+                      />
+                    </div>
+                    <div class="col webcam-container block p-1 m-0">
+                      <img
+                        id="webcam4"
+                        data-rtsp="rtsp://admin:Hikvision@192.168.137.2:554/Streaming/Channels/401"
+                        src="../static/images/nosignal.jpg"
+                        alt="Webcam 4"
+                        class="img-fluid camera-frame"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade show" id="cam1">
+                  <div class="d-flex flex-column flex-md-row flex-sm-row">
+                    <div class="col webcam-container block p-1 m-0">
+                      <img
+                        id="webcam1"
+                        data-rtsp="rtsp://admin:Hikvision@192.168.137.2:554/Streaming/Channels/101"
+                        src="../static/images/nosignal.jpg"
+                        alt="Webcam 1"
+                        class="img-fluid camera-frame"
+                      />
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <table
+                      id="cameralogs1"
+                      class="table text-center table-hover table-responsive"
+                    >
+                      <thead>
+                        <tr id="detection-logs" class="text-center">
+                          <th class="text-center">Date</th>
+                          <th class="text-center">Time</th>
+                          <th class="text-center">Camera</th>
+                          <th class="text-center">Detection</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody_cam1"></tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade show" id="cam2">
+                  <div class="d-flex flex-column flex-md-row flex-sm-row">
+                    <div class="col webcam-container block p-1 m-0">
+                      <img
+                        id="webcam2"
+                        data-rtsp="rtsp://admin:Hikvision@192.168.137.2:554/Streaming/Channels/201"
+                        src="../static/images/nosignal.jpg"
+                        alt="Webcam 2"
+                        class="img-fluid camera-frame"
+                      />
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <table
+                      id="cameralogs2"
+                      class="table text-center table-hover table-responsive"
+                    >
+                      <thead>
+                        <tr id="detection-logs" class="text-center">
+                          <th class="text-center">Date</th>
+                          <th class="text-center">Time</th>
+                          <th class="text-center">Camera</th>
+                          <th class="text-center">Detection</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody_cam2"></tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade show" id="cam3">
+                  <div class="d-flex flex-column flex-md-row flex-sm-row">
+                    <div class="col webcam-container block p-1 m-0">
+                      <img
+                        id="webcam3"
+                        data-rtsp="rtsp://admin:Hikvision@192.168.137.2:554/Streaming/Channels/301"
+                        src="../static/images/nosignal.jpg"
+                        alt="Webcam 3"
+                        class="img-fluid camera-frame"
+                      />
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <table
+                      id="cameralogs3"
+                      class="table text-center table-hover table-responsive"
+                    >
+                      <thead>
+                        <tr id="detection-logs" class="text-center">
+                          <th class="text-center">Date</th>
+                          <th class="text-center">Time</th>
+                          <th class="text-center">Camera</th>
+                          <th class="text-center">Detection</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody_cam3"></tbody>
+                    </table>
+                  </div>
+                </div>
+
+                <div class="tab-pane fade show" id="cam4">
+                  <div class="d-flex flex-column flex-md-row flex-sm-row">
+                    <div class="col webcam-container block p-1 m-0">
+                      <img
+                        id="webcam4"
+                        data-rtsp="rtsp://admin:Hikvision@192.168.137.2:554/Streaming/Channels/401"
+                        src="../static/images/nosignal.jpg"
+                        alt="Webcam 4"
+                        class="img-fluid camera-frame"
+                      />
+                    </div>
+                  </div>
+                  <div class="row mt-3">
+                    <table
+                      id="cameralogs4"
+                      class="table text-center table-hover table-responsive"
+                    >
+                      <thead>
+                        <tr id="detection-logs" class="text-center">
+                          <th class="text-center">Date</th>
+                          <th class="text-center">Time</th>
+                          <th class="text-center">Camera</th>
+                          <th class="text-center">Detection</th>
+                        </tr>
+                      </thead>
+                      <tbody id="tbody_cam4"></tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTENT 3: HISTORY -->
+        <div
+          id="content3"
+          class="content-item"
+          style="display: none"
+          data-title="History"
+        >
+          <div class="row align-items-center">
+            <div class="d-flex justify-content-between w-100 mt-3">
+              <h2 class="fw-bolder">History Record</h2>
+              <div class="d-flex align-items-center">
+                <i class="bi-shop-window me-2"></i>
+                <p class="mb-0" id="displayCompanyName2">Company Name</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card mt-2">
+            <div class="card-body">
+              <div class="table-responsive p-3">
+                <div class="data_table">
+                  <table
+                    id="table_detection"
+                    class="table table-bordered table-striped"
+                    style="width: 100%"
+                  >
+                    <thead>
+                      <tr id="history-tr" class="text-center">
+                        <th class="text-center">Date</th>
+                        <th class="text-center">Time</th>
+                        <th class="text-center">Type</th>
+                        <th class="text-center">Camera</th>
+                        <th class="text-center">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbody_detection"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!--CONTENT 4: PROFILE-->
+        <div class="content-item" id="content4" data-title="Accounts">
+          <div class="inner-content px-1 px-sm-5">
+            <div class="row mt-3">
+              <h2 class="fw-bolder">Accounts</h2>
+              <p class="fw-lighter">
+                Your account is authorized to create a shared account where
+                access is limited to camera feed monitoring and detection
+                history.
+              </p>
+            </div>
+
+            <div class="row mt-5">
+              <div
+                id="myAccount"
+                class="col-lg-4 col-sm-6 col-xxl-3 py-2"
+                style="width: fit-content"
+              >
+                <div
+                  class="card acc-card"
+                  data-bs-toggle="modal"
+                  data-bs-target="#yourAccModal"
+                >
+                  <div class="card-body">
+                    <div>
+                      <img
+                        src="../static/images/user.png"
+                        alt=""
+                        class="img-fluid p-2"
+                        style="background-color: #d7d7d7; border-radius: 50%"
+                      />
+                    </div>
+                  </div>
+                  <div class="card-footer pb-0 bg-light border-0">
+                    <p class="fw-semibold">Your Account</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-lg-4 col-sm-6 col-xxl-3 py-2"
+                style="width: fit-content"
+                id="addStaffAccCard"
+              >
+                <div
+                  class="card acc-card"
+                  data-bs-toggle="modal"
+                  data-bs-target="#addAccModal"
+                >
+                  <div class="card-body">
+                    <div>
+                      <img
+                        src="../static/images/add.png"
+                        alt=""
+                        class="img-fluid p-2"
+                        style="background-color: #d7d7d7; border-radius: 50%"
+                      />
+                    </div>
+                  </div>
+                  <div class="card-footer pb-0 bg-light border-0">
+                    <p class="fw-semibold">Add Account</p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                class="col-lg-4 col-sm-6 col-xxl-3 py-2"
+                style="width: fit-content"
+                id="staffAccCard"
+                data-bs-toggle="modal"
+                data-bs-target="#staffAccModal"
+              >
+                <div class="card acc-card">
+                  <div class="card-body">
+                    <div>
+                      <img
+                        src="../static/images/user.png"
+                        alt="img"
+                        class="img-fluid p-2"
+                        style="background-color: #d7d7d7; border-radius: 50%"
+                      />
+                    </div>
+                  </div>
+                  <div class="card-footer pb-0 bg-light border-0">
+                    <p class="fw-semibold">
+                      <span id="staffAcc">Staff Account</span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal your acc -->
+          <div
+            class="modal fade"
+            id="yourAccModal"
+            data-bs-backdrop="static"
+            tabindex="-1"
+            aria-labelledby="yourAccModal"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-xl">
+              <div class="modal-content" style="height: 90vh">
+                <div
+                  class="modal-header text-white"
+                  style="background-color: #0b0b14"
+                >
+                  <h5 class="modal-title fw-bold" id="editStaffModalLabel">
+                    View Account Details
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body" style="overflow: auto">
+                  <form class="p-3" id="editStaffForm">
+                    <h3 class="mb-3 fs-5 fw-semibold">Personal Information</h3>
+                    <hr class="mb-3" />
+                    <div class="row mb-2">
+                      <div class="col-sm-6 col-xl-4">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewFirstname"
+                            >First name</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewFirstname"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-xl-4">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewMiddlename"
+                            >Middle name</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewMiddlename"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-sm-6 col-xl-4">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewLastname"
+                            >Last name</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewLastname"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row mb-4">
+                      <div class="col-xl-5 col-md-6">
+                        <div data-mdb-input-init class="form-outline">
+                          <label
+                            for="validationCustomContactNo"
+                            class="form-label"
+                            >Contact Number</label
+                          >
+                          <div class="input-group has-validation">
+                            <span
+                              class="input-group-text bg-secondary text-black"
+                              id="inputGroupPrepend"
+                              >+63</span
+                            >
+                            <input
+                              disabled
+                              type="text"
+                              class="form-control"
+                              id="viewContactNo"
+                              aria-describedby="inputGroupPrepend"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xl-5 col-md-6">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewGender"
+                            >Gender</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewGender"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row mb-2">
+                      <h3 class="mt-3 mb-3 fs-5 fw-semibold">Address</h3>
+                      <hr class="mb-3" />
+                      <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewRegion"
+                            >Region</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewRegion"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewProvince"
+                            >Province</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewProvince"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewCity">City</label>
+                          <input
+                            disabled
+                            type="text"
+                            id="viewCity"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewBarangay"
+                            >Barangay</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewBarangay"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xl-8 col-sm-6 col-lg-4 mb-2">
+                        <div data-mdb-input-init class="form-outline mb-4">
+                          <label class="form-label" for="viewAddressInfo"
+                            >Other Details</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewAddressInfo"
+                            placeholder="Other Details: Stree Name, Building Name, House Number..."
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row mb-2">
+                      <h3 class="mt-3 mb-3 fs-5 fw-semibold">
+                        Company Information
+                      </h3>
+                      <hr class="mb-3" />
+                      <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewCompanyName"
+                            >Company Name</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewCompanyName"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewCompanyBranch"
+                            >Company Branch</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewCompanyBranch"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewCompanyEmail"
+                            >Company Email</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewCompanyEmail"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <label
+                            class="form-label"
+                            for="viewCompanyTelephoneNumber"
+                            >Company Telephone Number</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewCompanyTelephoneNumber"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row mb-2">
+                      <h3 class="mt-3 mb-3 fs-5 fw-semibold">
+                        Company Address
+                      </h3>
+                      <hr class="mb-3" />
+                      <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewCompanyRegion"
+                            >Company Region</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewCompanyRegion"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewCompanyProvince"
+                            >Company Province</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewCompanyProvince"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewCompanyCity"
+                            >Company City</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewCompanyCity"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewCompanyBarangay"
+                            >Company Barangay</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewCompanyBarangay"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-xl-8 col-sm-6 col-lg-4 mb-2">
+                        <div data-mdb-input-init class="form-outline">
+                          <label class="form-label" for="viewCompanyAddress"
+                            >Company Address</label
+                          >
+                          <input
+                            disabled
+                            type="text"
+                            id="viewCompanyAddress"
+                            class="form-control"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn fw-bold px-3"
+                    id="editAccountBtn"
+                    style="background-color: #0b0b14; color: #2ff29e"
+                  >
+                    Edit Profile
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal Add Account -->
+          <div
+            class="modal fade"
+            id="addAccModal"
+            tabindex="-1"
+            aria-labelledby="addAccModalLabel"
+            aria-hidden="true"
+            data-bs-backdrop="static"
+          >
+            <div class="modal-dialog modal-md modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header text-white">
+                  <h5 class="modal-title fw-bold" id="addAccModalLabel">
+                    Add New Account
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close text-white"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form class="needs-validation" id="addStaffAccForm">
+                    <div class="row mb-4">
+                      <div class="col-12 mt-2">
+                        <div class="form-floating mt-3">
+                          <input
+                            type="email"
+                            id="staffEmail"
+                            class="form-control"
+                            placeholder="Email"
+                            required
+                          />
+                          <label for="email">Email address:</label>
+                          <div class="invalid-feedback" id="staffEmailFeedback">
+                            *Please enter your email.
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 mt-2">
+                        <div class="form-floating mt-4 position-relative">
+                          <input
+                            type="password"
+                            id="staffPassword"
+                            class="form-control"
+                            placeholder="Password"
+                            required
+                          />
+                          <label for="password">Password:</label>
+                          <div
+                            class="invalid-feedback"
+                            id="staffPasswordFeedback"
+                          >
+                            *Please enter your password.
+                          </div>
+                          <!-- <span class="position-absolute top-50 end-0 translate-middle-y me-3"
+                          id="staffTogglePassword" style="cursor: pointer;">
+                          <i class="bi bi-eye" id="staffToggleIcon"></i>
+                      </span> -->
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-floating mt-4 position-relative">
+                          <input
+                            type="password"
+                            id="staffConfirmPassword"
+                            class="form-control"
+                            placeholder="Confirm Password"
+                            required
+                          />
+                          <label for="staffConfirmPassword"
+                            >Confirm Password:</label
+                          >
+                          <div
+                            class="invalid-feedback"
+                            id="staffConfirmPasswordFeedback"
+                          >
+                            *Password do not match.
+                          </div>
+                          <!-- <span class="position-absolute top-50 end-0 translate-middle-y me-3" id="staffToggleConfirmPassword" style="cursor: pointer;">
+                          <i class="bi bi-eye" id="staffToggleConfirmIcon"></i>
+                      </span> -->
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btnmodal"
+                    id="addStaffAccbtn"
+                  >
+                    Create Account
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal Staff Account -->
+          <div
+            class="modal fade"
+            id="staffAccModal"
+            tabindex="-1"
+            aria-labelledby="staffAccModalLabel"
+            aria-hidden="true"
+            data-bs-backdrop="static"
+          >
+            <div class="modal-dialog modal-md modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header justify-content-between">
+                  <div>
+                    <h5 class="modal-title fw-bold" id="addAccModalLabel">
+                      Staff Account
+                    </h5>
+                  </div>
+                  <div>
+                    <button
+                      id="deleteBtn"
+                      class="btn btn-outline-danger"
+                      data-bs-placement="top"
+                      title="Delete Account"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalDelete"
+                    >
+                      <i class="bi bi-trash3"></i>
+                    </button>
+                  </div>
+                  <!-- <button type="button" class="btn-close text-white" data-bs-dismiss="modal"
+          aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body">
+                  <form action="" id="staffAccForm">
+                    <div>
+                      <div class="row mb-4">
+                        <div class="col-12 mt-2">
+                          <div class="form-floating mt-3">
+                            <input
+                              type="email"
+                              id="staffAccountEmail"
+                              class="form-control"
+                              placeholder="Email"
+                              required
+                            />
+                            <label for="email">Email address:</label>
+                            <div
+                              class="invalid-feedback"
+                              id="staffAccEmailFeedback"
+                            >
+                              *Please enter your email.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-12 mt-2">
+                          <div class="form-floating mt-4 position-relative">
+                            <input
+                              type="password"
+                              id="staffAccountPassword"
+                              class="form-control"
+                              placeholder="Password"
+                              required
+                            />
+                            <label for="password">Password:</label>
+                            <div
+                              class="invalid-feedback"
+                              id="staffAccPasswordFeedback"
+                            >
+                              *Please enter your password.
+                            </div>
+                            <!-- <span class="position-absolute top-50 end-0 translate-middle-y me-3"
+                              id="staffTogglePassword" style="cursor: pointer;">
+                              <i class="bi bi-eye" id="staffToggleIcon"></i>
+                          </span> -->
+                          </div>
+                        </div>
+
+                        <div class="col-12">
+                          <div class="form-floating mt-4 position-relative">
+                            <input
+                              type="password"
+                              id="staffAccountConfirmPassword"
+                              class="form-control"
+                              placeholder="Confirm Password"
+                              required
+                            />
+                            <label for="staffConfirmPassword"
+                              >Confirm Password:</label
+                            >
+                            <div
+                              class="invalid-feedback"
+                              id="staffAccConfirmPasswordFeedback"
+                            >
+                              *Password do not match.
+                            </div>
+                            <!-- <span class="position-absolute top-50 end-0 translate-middle-y me-3" id="staffToggleConfirmPassword" style="cursor: pointer;">
+                              <i class="bi bi-eye" id="staffToggleConfirmIcon"></i>
+                          </span> -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer justify-content-end">
+                  <!-- <div class="">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Delete Account</button>
+      </div> -->
+                  <div>
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btnmodal"
+                      id="saveEditStaffAccbtn"
+                    >
+                      Save Changes
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Account created Succesfully -->
+          <div
+            class="modal fade"
+            id="modalSuccess"
+            tabindex="-1"
+            aria-labelledby="confirmationModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-md modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header border-0">
+                  <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"
+          aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body pt-3">
+                  <center>
+                    <img
+                      src="../static/images/icons/check.png"
+                      alt="Success"
+                      class="d-flex justify-content-center img-fluid"
+                    />
+                  </center>
+                  <p class="mt-3 fs-3 fw-semibold text-center text-light">
+                    Account created successfully!
+                  </p>
+                </div>
+                <div class="modal-footer border-0">
+                  <button
+                    type="button"
+                    id="cancelSuccessModal"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Delete Account Confirmation -->
+          <div
+            class="modal fade"
+            id="modalDelete"
+            tabindex="-1"
+            aria-labelledby="deleteModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-md modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header border-bottom pb-0">
+                  <p id="confirmdelBTN" class="fw-semibold text-light fs-5">
+                    Confirm deletion
+                  </p>
+                  <!-- <button type="button" class="btn-close" data-bs-dismiss="modal"
+          aria-label="Close"></button> -->
+                </div>
+                <div class="modal-body">
+                  <!-- <center>
+          <img src="images/icons/check.png" alt="Success"
+              class="d-flex justify-content-center img-fluid">
+      </center> -->
+                  <!-- <p class="fs-4 fw-semibold text-start text-light">Are you sure you want to delete staff account?</p> -->
+                  <p class="fw-lighter text-start">
+                    Are you sure you want to delete staff account? This action
+                    cannot be undone.
+                  </p>
+                </div>
+                <div class="modal-footer border-0">
+                  <button
+                    type="button"
+                    id="cancelSuccessBtn"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    id="deleteAccountBtn"
+                    class="btn btn-danger"
+                  >
+                    Yes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-item" id="editAccount">
+          <div class="inner-content">
+            <div class="row align-items-center">
+              <div>
+                <p class="fw-bold">
+                  <a href="" class="text-decoration-none text-black fw-normal"
+                    ><i class="bi bi-arrow-left me-1"></i>Your Account</a
+                  >
+                  / Edit Account
+                </p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div
+                id="column1"
+                class="col-xl-12 col-md-12 order-md-2 order-xl-1"
+              >
+                <div class="card shadow">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <form
+                        class="p-3 needs-validation"
+                        id="editYourAccountForm"
+                        novalidate
+                      >
+                        <h3 class="mb-3 fs-5 fw-semibold">
+                          Personal Information
+                        </h3>
+                        <hr class="mb-3" />
+                        <div class="row mb-2">
+                          <div class="col-sm-6 col-xl-4">
+                            <div data-mdb-input-init class="form-outline">
+                              <label class="form-label" for="editFirstname"
+                                >First Name</label
+                              >
+                              <input
+                                type="text"
+                                id="editFirstname"
+                                class="form-control"
+                                required
+                              />
+                              <div
+                                class="invalid-feedback"
+                                id="edit_firstNameFeedback"
+                              ></div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-xl-4">
+                            <div data-mdb-input-init class="form-outline">
+                              <label class="form-label" for="editMiddlename"
+                                >Middle Name</label
+                              >
+                              <input
+                                type="text"
+                                id="editMiddlename"
+                                class="form-control"
+                                required
+                              />
+                              <div
+                                class="invalid-feedback"
+                                id="edit_middleNameFeedback"
+                              ></div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-xl-4">
+                            <div data-mdb-input-init class="form-outline">
+                              <label class="form-label" for="editLastname"
+                                >Last Name</label
+                              >
+                              <input
+                                type="text"
+                                id="editLastname"
+                                class="form-control"
+                                required
+                              />
+                              <div
+                                class="invalid-feedback"
+                                id="edit_lastNameFeedback"
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mb-4">
+                          <div class="col-xl-5 col-md-6">
+                            <div data-mdb-input-init class="form-outline">
+                              <label
+                                for="validationCustomContactNo"
+                                class="form-label"
+                                >Contact Number</label
+                              >
+                              <div class="input-group has-validation">
+                                <span
+                                  class="input-group-text bg-secondary text-black"
+                                  id="inputGroupPrepend"
+                                  >+63</span
+                                >
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="editContactNo"
+                                  aria-describedby="inputGroupPrepend"
+                                  required
+                                  placeholder="9XX XXX XXXX"
+                                />
+                                <div
+                                  class="invalid-feedback"
+                                  id="edit_contactNoFeedback"
+                                ></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-xl-5 col-md-6">
+                            <div data-mdb-input-init class="form-outline">
+                              <label class="form-label" for="editGender"
+                                >Gender</label
+                              >
+                              <select
+                                id="editGender"
+                                class="form-control"
+                                required
+                              >
+                                <option value="" disabled selected>
+                                  Select Gender
+                                </option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mb-2">
+                          <h3 class="mt-3 mb-3 fs-5 fw-semibold">
+                            Address Information
+                          </h3>
+                          <hr class="mb-3" />
+                          <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                            <div data-mdb-input-init class="form-outline">
+                              <select
+                                class="form-control"
+                                id="editClientRegion"
+                                onchange="EditClientProvince()"
+                                required
+                              >
+                                <option value="" disabled selected>
+                                  Select Region
+                                </option>
+                                <option value="Mindanao">Mindanao</option>
+                                <option value="NCR">NCR</option>
+                                <option value="North Luzon">North Luzon</option>
+                                <option value="South Luzon">South Luzon</option>
+                                <option value="Visayas">Visayas</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                            <div data-mdb-input-init class="form-outline">
+                              <select
+                                class="form-control"
+                                id="editClientProvince"
+                                onchange="EditClientCity()"
+                                required
+                              >
+                                <option value="" disabled selected>
+                                  Select Province
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                            <div data-mdb-input-init class="form-outline">
+                              <select
+                                class="form-control"
+                                id="editClientCity"
+                                onchange="EditClientBarangay()"
+                                required
+                              >
+                                <option value="" disabled selected>
+                                  Select City
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mb-2">
+                          <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                            <div data-mdb-input-init class="form-outline">
+                              <select
+                                class="form-control"
+                                id="editClientBarangay"
+                              >
+                                <option value="" disabled selected>
+                                  Select Barangay
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-xl-8 col-sm-6 col-lg-4 mb-2">
+                            <div data-mdb-input-init class="form-outline mb-4">
+                              <input
+                                type="text"
+                                id="editClientAddressInfo"
+                                placeholder="Address Info: Street Name, Building Name, House Number..."
+                                class="form-control"
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mb-2">
+                          <h3 class="mt-3 mb-3 fs-5 fw-semibold">
+                            Company Address Information
+                          </h3>
+                          <hr class="mb-3" />
+                          <div class="col-sm-6 col-xl-4">
+                            <div data-mdb-input-init class="form-outline">
+                              <label class="form-label" for="editCompanyName"
+                                >Company Name</label
+                              >
+                              <input
+                                type="text"
+                                id="editCompanyName"
+                                class="form-control"
+                                required
+                              />
+                              <div
+                                class="invalid-feedback"
+                                id="edit_companyNameFeedback"
+                              ></div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-xl-4">
+                            <div data-mdb-input-init class="form-outline">
+                              <label class="form-label" for="editCompanyBranch"
+                                >Company Branch</label
+                              >
+                              <input
+                                type="text"
+                                id="editCompanyBranch"
+                                class="form-control"
+                                required
+                              />
+                              <div
+                                class="invalid-feedback"
+                                id="edit_companyBranchFeedback"
+                              ></div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-xl-4">
+                            <div data-mdb-input-init class="form-outline">
+                              <label class="form-label" for="editCompanyEmail"
+                                >Company Email</label
+                              >
+                              <input
+                                type="text"
+                                placeholder="example@gmail.com"
+                                id="editCompanyEmail"
+                                class="form-control"
+                                required
+                              />
+                              <div
+                                class="invalid-feedback"
+                                id="edit_companyEmailFeedback"
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mb-4">
+                          <div class="col-sm-6 col-xl-4">
+                            <div data-mdb-input-init class="form-outline">
+                              <label
+                                class="form-label"
+                                for="editCompanyTelephoneNo"
+                                >Company Telephone Number</label
+                              >
+                              <input
+                                type="text"
+                                placeholder="00-123-4567"
+                                id="editCompanyTelephoneNo"
+                                class="form-control"
+                                required
+                              />
+                              <div
+                                class="invalid-feedback"
+                                id="edit_companyTelephoneNoFeedback"
+                              ></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mb-2">
+                          <h3 class="mt-3 mb-3 fs-5 fw-semibold">
+                            Company Address Information
+                          </h3>
+                          <hr class="mb-3" />
+                          <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                            <div data-mdb-input-init class="form-outline">
+                              <select
+                                class="form-control"
+                                id="editCompanyRegion"
+                                onchange="EditCompanyProvince()"
+                                required
+                              >
+                                <option value="" disabled selected>
+                                  Select Region
+                                </option>
+                                <option value="Mindanao">Mindanao</option>
+                                <option value="NCR">NCR</option>
+                                <option value="North Luzon">North Luzon</option>
+                                <option value="South Luzon">South Luzon</option>
+                                <option value="Visayas">Visayas</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                            <div data-mdb-input-init class="form-outline">
+                              <select
+                                class="form-control"
+                                id="editCompanyProvince"
+                                onchange="EditCompanyCity()"
+                                required
+                              >
+                                <option value="" disabled selected>
+                                  Select Province
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                            <div data-mdb-input-init class="form-outline">
+                              <select
+                                class="form-control"
+                                id="editCompanyCity"
+                                onchange="EditCompanyBarangay()"
+                                required
+                              >
+                                <option value="" disabled selected>
+                                  Select City
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row mb-2">
+                          <div class="col-xl-4 col-sm-6 col-lg-4 mb-2">
+                            <div data-mdb-input-init class="form-outline">
+                              <select
+                                class="form-control"
+                                id="editCompanyBarangay"
+                              >
+                                <option value="" disabled selected>
+                                  Select Barangay
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-xl-8 col-sm-6 col-lg-4 mb-2">
+                            <div data-mdb-input-init class="form-outline mb-4">
+                              <input
+                                type="text"
+                                id="editCompanyAddressInfo"
+                                placeholder="Address Info: Street Name, Building Name, House Number..."
+                                class="form-control"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn fw-bold px-3"
+                        style="background-color: #0b0b14; color: #2ff29e"
+                        id="saveEditBtn"
+                        disabled
+                      >
+                        Save Changes
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Edit Camera Tab Name-->
+    <div
+      class="modal fade"
+      data-bs-backdrop="static"
+      id="editTabModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #0b0b14">
+            <h5 class="modal-title text-white">Edit Tab Name</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <input
+              type="text"
+              id="tabNameInput"
+              class="form-control"
+              placeholder="Enter new name"
+            />
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn bg-dark"
+              style="color: #2ff29e"
+              id="saveTabName"
+            >
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--SAVE CHANGES-->
+    <div
+      class="modal fade"
+      id="savechangesModal"
+      tabindex="-1"
+      aria-labelledby="staffSuccessModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content border border-light rounded-2">
+          <div class="modal-body pt-3 rounded-2">
+            <center>
+              <img
+                src="../static/images/icons/check.png"
+                alt="Success"
+                class="d-flex justify-content-center img-fluid"
+              />
+            </center>
+            <p class="mt-3 fs-3 fw-bold text-center">Changes saved</p>
+          </div>
+          <div class="modal-footer border-0">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div
+      class="modal fade"
+      id="confirmationModal"
+      tabindex="-1"
+      aria-labelledby="confirmationModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold" id="confirmationModalLabel">
+              Confirm Changes
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to save these changes?
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="btn px-3"
+              style="background-color: #0b0b14; color: #2ff29e"
+              id="confirmSaveBtn"
+            >
+              Yes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="../static/js/client.js"></script>
+    <script type="module" defer src="../static/js/script.js"></script>
+    <script src="../static/js/camera_web.js"></script>
+    <script type="module" src="../static/js/HistoryLogs.js"></script>
+    <script type="module" src="../static/js/manager.js"></script>
+    <script
+      type="module"
+      src="../static/js/new_client_detectionPerMonth_bar.js"
+    ></script>
+    <script type="module" src="../static/js/login.js"></script>
+    <script src="../static/js/address_handler.js"></script>
+    <script src="../static/js/update_client_address.js"></script>
+    <script src="../static/js/update_company_address.js"></script>
+    <!-- <script src="../static/js/staff_address.js"></script> -->
+    <!-- <script src="../static/js/update_staff_address.js"></script> -->
+
+    <!-- <script type="module" src="../static/js/detectionSummary_pie.js"></script> -->
+    <!-- <script type="module" src="../static/js/add_staff.js"></script>
+  <script type="module" src="../static/js/staff.js"></script>
+  <script type="module" src="../static/js/cam1_logs.js"></script>
+  <script type="module" src="../static/js/cam2_logs.js"></script>
+  <script type="module" src="../static/js/cam3_logs.js"></script>
+  <script type="module" src="../static/js/cam4_logs.js"></script>-->
+    <!-- <script type="module" src="../static/js/camera_logs.js"></script> -->
+
+    <!-- jQuery -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+      integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- DataTables Buttons -->
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.7.1/js/buttons.colVis.min.js"></script>
+
+    <!-- PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+
+    <!-- Bootstrap Bundle (includes Bootstrap JS and Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

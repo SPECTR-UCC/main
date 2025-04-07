@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(to bottom, #35374B, #35374B);
+    height: 100vh   ;
+}
+
+#welcome {
+    color: #09DCB5;
+}
+
+#code {
+    background-color: rgb(228, 228, 235);
+}
+
+#rightside {
+    background: linear-gradient(to bottom, #09DCB5, #999999);
+}
+
+button {
+    width: 80%;
+    padding: 10px;
+    background-color: #3de2c5;
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #33b9a3;
+}
+
+#forgotpass, #showpass {
+    color: black;
+}
+#forgotpass:hover, #showpass:hover {
+    color: #33b9a3;
+}
+
+#code {
+    border-width: 3px;
+}

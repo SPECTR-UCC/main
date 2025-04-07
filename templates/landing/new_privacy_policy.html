@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPECTR</title>
+
+    <link
+      rel="shortcut icon"
+      href="../../static/images/logo/SPECTR-logo-new.png"
+      type="image/x-icon"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!--CSS-->
+    <link rel="stylesheet" href="../../static/css/privacy_policy.css" />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!--Navbar-->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark py-0 px-3 fixed-top"
+      aria-label="Offcanvas navbar large"
+      data-aos="fade-down"
+      data-aos-duration="500"
+      data-aos-once="true"
+      id="navbar"
+    >
+      <div class="container-fluid section-bg-black">
+        <div
+          class="d-flex align-items-center justify-content-center text-center"
+        >
+          <a class="navbar-brand" href="index" style="cursor: pointer">
+            <img
+              class="brand-logo"
+              src="../../static/images/logo/SPECTR-logo-new-without-S.png"
+              alt="SPECTR"
+              height="70"
+              loading="eager"
+            />
+          </a>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar2"
+          aria-controls="offcanvasNavbar2"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end text-bg-dark"
+          tabindex="-1"
+          id="offcanvasNavbar2"
+          aria-labelledby="offcanvasNavbar2Label"
+        >
+          <div class="offcanvas-header">
+            <img
+              class="brand-logo"
+              src="../../static/images/logo/SPECTR-logo-new-without-S.png"
+              alt="SPECTR"
+              height="70"
+              loading="eager"
+            />
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 gap-4">
+              <li id="nav-menu" class="nav-item px-2">
+                <a
+                  class="nav-link fw-bolder text-decoration-none"
+                  href="index"
+                  onclick="redirectToSection(event, 'section2')"
+                >
+                  Solutions
+                </a>
+              </li>
+              <li id="nav-menu" class="nav-item px-2">
+                <a class="nav-link fw-bolder" href="about-us">About Us</a>
+              </li>
+              <li id="nav-menu" class="nav-item px-2">
+                <a class="nav-link fw-bolder" href="contact_us">Contact Us</a>
+              </li>
+              <li class="nav-item px-2">
+                <a
+                  id="btnLogin"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalLogin"
+                  class="nav-link fw-bold px-4 text-center rounded-5"
+                  >Login</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div
+      class="modal fade"
+      id="modalLogin"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div
+            class="modal-body p-0 rounded-2"
+            style="background-color: #181818"
+          >
+            <div
+              class="row d-flex justify-content-md-center align-items-center"
+            >
+              <div class="row m-0">
+                <div
+                  id="leftside"
+                  class="col-lg-6 d-none d-lg-flex align-items-center custom-border-img"
+                >
+                  <div>
+                    <img
+                      src="../../static/images/Privacy policy-rafiki.png"
+                      class="img-fluid"
+                      alt="Login Icon"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="card-body p-md-3 mx-md-2">
+                    <button
+                      id="loginbtnclose"
+                      type="button"
+                      class="btn-close position-absolute p-3"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                      style="
+                        outline: none;
+                        box-shadow: none;
+                        top: 0;
+                        right: 0;
+                        filter: invert(1) brightness(100);
+                      "
+                    ></button>
+                    <form
+                      class="my-3 needs-validation"
+                      id="mainform"
+                      novalidate
+                    >
+                      <h1 id="welcome" class="fw-bold mb-2">Log In</h1>
+                      <p class="text-light mb-5 fw-lighter">
+                        Enter your credentials below.
+                      </p>
+                      <div class="form-floating mt-3">
+                        <input
+                          type="email"
+                          id="email"
+                          class="form-control"
+                          placeholder="Email"
+                          required
+                        />
+                        <label for="email">Email address:</label>
+                        <div class="invalid-feedback" id="emailFeedback">
+                          *Please enter your email.
+                        </div>
+                      </div>
+
+                      <div class="form-floating mt-4 position-relative">
+                        <input
+                          type="password"
+                          id="password"
+                          class="form-control"
+                          placeholder="Password"
+                          required
+                        />
+                        <label for="password">Password:</label>
+                        <div class="invalid-feedback" id="passwordFeedback">
+                          *Please enter your password.
+                        </div>
+                        <span
+                          id="togglePassword"
+                          class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3"
+                          style="cursor: pointer"
+                        >
+                        </span>
+                      </div>
+
+                      <p class="d-flex justify-content-end mt-3">
+                        <a
+                          id="forgotpass"
+                          class="text-decoration-none"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalForgot"
+                          style="cursor: pointer"
+                          >Forgot Password?</a
+                        >
+                      </p>
+                      <div
+                        class="d-flex align-items-center justify-content-center"
+                      >
+                        <button
+                          id="modalbtnlogin"
+                          class="btnmodal rounded-5 mt-5 fw-bolder text-dark"
+                        >
+                          LOGIN
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Pass Modal -->
+    <div
+      class="modal fade"
+      id="modalForgot"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-md modal-dialog-centered w-25">
+        <div class="modal-content d-flex flex-column">
+          <div
+            class="modal-body py-3 px-1 border rounded-2 border-1 border-light"
+            style="background-color: #181818"
+          >
+            <div
+              class="row d-flex justify-content-md-center align-items-center"
+            >
+              <div class="row m-0">
+                <div class="card-body p-md-3 mx-md-2">
+                  <button
+                    id="loginbtnclose"
+                    type="button"
+                    class="btn position-absolute p-3"
+                    aria-label="Back"
+                    style="
+                      outline: none;
+                      box-shadow: none;
+                      top: 0;
+                      left: 0;
+                      filter: invert(1) brightness(100);
+                      border: none;
+                    "
+                    data-bs-target="#modalLogin"
+                    data-bs-toggle="modal"
+                  >
+                    <i
+                      class="bi bi-arrow-left"
+                      style="outline: none; box-shadow: none"
+                    ></i>
+                  </button>
+
+                  <form
+                    class="my-3 needs-validation"
+                    id="forgotpassform"
+                    novalidate
+                  >
+                    <h1 id="welcome" class="fw-bold mb-2">Forgot Password</h1>
+                    <p class="text-light mb-5 fw-lighter">
+                      Enter your email below.
+                    </p>
+                    <div class="form-floating mb-4">
+                      <input
+                        type="email"
+                        id="forgotpassemail"
+                        class="form-control"
+                        placeholder="Email"
+                        required
+                      />
+                      <label for="email">Email address:</label>
+                      <div class="invalid-feedback">
+                        *Please enter your email.
+                      </div>
+                      <div id="noacc-feedback" style="display: none"></div>
+                    </div>
+
+                    <div
+                      class="d-flex align-items-center justify-content-center"
+                    >
+                      <a
+                        id="sendOTP"
+                        class="btnmodal fw-bold px-4 text-center rounded-5 text-decoration-none text-dark"
+                        >Submit</a
+                      >
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1-->
+    <section class="hero-page py-5">
+      <div class="container py-5 justify-content-center align-items-center">
+        <h1 class="display-4 fw-bolder lh-4 mt-5 text-center">
+          SPECTR <br />
+          Privacy Policy
+        </h1>
+        <p class="fw-light mt-5 text-light text-center">
+          Our AI software takes advantage of new opportunities while also
+          addressing privacy concerns by ensuring strong protections for user
+          data. <br />
+          Here’s how we work to ensure the protection of user data privacy in
+          our AI software.
+        </p>
+      </div>
+    </section>
+    <!-- Section 1-->
+
+    <!--Section 2-->
+    <div class="container px-3 px-lg-5">
+      <div class="custom-shape-divider-top-1725753634">
+        <svg
+          data-name="Layer 1"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M649.97 0L550.03 0 599.91 54.12 649.97 0z"
+            class="shape-fill"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="row py-5 d-flex flex-column flex-lg-row">
+        <div class="col">
+          <h1 class="fw-bolder pb-5">
+            Understanding Privacy in AI: Key Insights
+          </h1>
+        </div>
+
+        <div class="col">
+          <p>
+            Systems made of Artificial Inteligence usually depends on large
+            amount of personal data which leads to various privacy concerns. As
+            use of AI increases nowadays, it is important to understand how it
+            manages sensitive information and the risks that come with it.
+          </p>
+          <br />
+          <p>
+            By adopting best practices such as data anonymization, encryption,
+            and regular provacy audits, organizations can lessen risks in
+            privacy concerns and create an AI system that considers user
+            privacy. Looking ahead, privacy considerations will continue to
+            shpae the development of AI as new laws and technological
+            advancements emerge.
+          </p>
+        </div>
+      </div>
+
+      <div class="row py-5 d-flex flex-column flex-lg-row">
+        <div class="col-xl-7">
+          <h1 class="fw-bolder pb-5">Significance of Privacy in AI</h1>
+          <p>
+            As use of Artificial Intelligence (AI) becomes prevalent in our
+            modern time, proper handling of personal data is now much more
+            important. AI systems process large amout of private data, from
+            personal details to business information. Keeping this information
+            safe protects people's rights and also helps build trust and ensures
+            AI is used responsibly.
+          </p>
+          <p>
+            AI can lead to several issues such as misuse of data or breaches
+            that can cause serious issues to the users without proper privacy
+            measures. Strong privacy rules and practices are needed to ensure AI
+            systems work securely and also following the laws.
+          </p>
+          <a href="" class="btn fw-bolder rounded-5 px-3 mt-3 mb-5" id="btnMore"
+            >Learn more about AI Solutions?</a
+          >
+        </div>
+
+        <div class="col-xl-5 align-items-center justify-content-center">
+          <img
+            src="../../static/images/privacy-policy.png"
+            alt="Image1"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+    </div>
+    <!--Section 2-->
+
+    <hr class="w-75 justify-content-center align-items-center mx-auto mb-5" />
+
+    <div class="container px-5">
+      <h1 class="fw-bold my-3">Information Collection</h1>
+      <p class="my-3">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt vero
+        nulla aspernatur repellat tenetur. At sunt fuga, recusandae nam
+        veritatis commodi porro praesentium neque reprehenderit maxime alias
+        facere quas laboriosam quasi illo ea reiciendis asperiores dicta
+        molestias dolor vel aliquid? Consectetur dicta aspernatur nobis odit
+        quia laborum ullam! Odio veritatis laudantium odit facere expedita
+        impedit, itaque corrupti, nam atque neque adipisci esse. Maxime ullam
+        aliquid, cumque temporibus suscipit possimus? Laboriosam similique ipsum
+        sit natus illo temporibus voluptate officia perferendis consectetur
+        nesciunt iusto corrupti iste delectus molestiae, aspernatur expedita
+        illum modi alias impedit nemo et nulla est! Consequuntur rem dolore
+        vero.
+      </p>
+
+      <ul>
+        <li>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex, deleniti
+          animi nam id ipsam amet rem! Blanditiis eveniet ducimus culpa dolorum,
+          accusantium dicta laborum esse illum, magni voluptas explicabo rem?
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui magni
+          earum temporibus a possimus error quidem repellendus? Eius, dolor
+          laborum?
+        </li>
+        <li>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ex, deleniti
+          animi nam id ipsam amet rem! Blanditiis eveniet ducimus culpa dolorum,
+          accusantium dicta laborum esse illum, magni voluptas explicabo rem?
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione,
+          deserunt!
+        </li>
+        <li>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+          ipsam hic consequuntur nihil.
+        </li>
+      </ul>
+
+      <h1 class="fw-bold mt-5 my-3">Trademark and Copyright</h1>
+      <p class="my-3">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt vero
+        nulla aspernatur repellat tenetur. At sunt fuga, recusandae nam
+        veritatis commodi porro praesentium neque reprehenderit maxime alias
+        facere quas laboriosam quasi illo ea reiciendis asperiores dicta
+        molestias dolor vel aliquid? Consectetur dicta aspernatur nobis odit
+        quia laborum ullam! Odio veritatis laudantium odit facere expedita
+        impedit, itaque corrupti, nam atque neque adipisci esse. Maxime ullam
+        aliquid, cumque temporibus suscipit possimus? Laboriosam similique ipsum
+        sit natus illo temporibus voluptate officia perferendis consectetur
+        nesciunt iusto corrupti iste delectus molestiae, aspernatur expedita
+        illum modi alias impedit nemo et nulla est! Consequuntur rem dolore
+        vero.
+      </p>
+
+      <h1 class="fw-bold mt-5 my-3">Data Security</h1>
+      <p class="my-3">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt vero
+        nulla aspernatur repellat tenetur. At sunt fuga, recusandae nam
+        veritatis commodi porro praesentium neque reprehenderit maxime alias
+        facere quas laboriosam quasi illo ea reiciendis asperiores dicta
+        molestias dolor vel aliquid? Consectetur dicta aspernatur nobis odit
+        quia laborum ullam! Odio veritatis laudantium odit facere expedita
+        impedit, itaque corrupti, nam atque neque adipisci esse. Maxime ullam
+        aliquid, cumque temporibus suscipit possimus? Laboriosam similique ipsum
+        sit natus illo temporibus voluptate officia perferendis consectetur
+        nesciunt iusto corrupti iste delectus molestiae, aspernatur expedita
+        illum modi alias impedit nemo et nulla est! Consequuntur rem dolore
+        vero.
+      </p>
+
+      <h1 class="fw-bold mt-5 my-3">Third-party Links</h1>
+      <p class="my-3">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt vero
+        nulla aspernatur repellat tenetur. At sunt fuga, recusandae nam
+        veritatis commodi porro praesentium neque reprehenderit maxime alias
+        facere quas laboriosam quasi illo ea reiciendis asperiores dicta
+        molestias dolor vel aliquid? Consectetur dicta aspernatur nobis odit
+        quia laborum ullam! Odio veritatis laudantium odit facere expedita
+        impedit, itaque corrupti, nam atque neque adipisci esse. Maxime ullam
+        aliquid, cumque temporibus suscipit possimus? Laboriosam similique ipsum
+        sit natus illo temporibus voluptate officia perferendis consectetur
+        nesciunt iusto corrupti iste delectus molestiae, aspernatur expedita
+        illum modi alias impedit nemo et nulla est! Consequuntur rem dolore
+        vero.
+      </p>
+
+      <h1 class="fw-bold mt-5 my-3">Disclaimer</h1>
+      <p class="my-3">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt vero
+        nulla aspernatur repellat tenetur. At sunt fuga, recusandae nam
+        veritatis commodi porro praesentium neque reprehenderit maxime alias
+        facere quas laboriosam quasi illo ea reiciendis asperiores dicta
+        molestias dolor vel aliquid? Consectetur dicta aspernatur nobis odit
+        quia laborum ullam! Odio veritatis laudantium odit facere expedita
+        impedit, itaque corrupti, nam atque neque adipisci esse. Maxime ullam
+        aliquid, cumque temporibus suscipit possimus? Laboriosam similique ipsum
+        sit natus illo temporibus voluptate officia perferendis consectetur
+        nesciunt iusto corrupti iste delectus molestiae, aspernatur expedita
+        illum modi alias impedit nemo et nulla est! Consequuntur rem dolore
+        vero.
+      </p>
+
+      <h1 class="fw-bold mt-5 my-3">Contact Information</h1>
+      <p class="my-3">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sunt vero
+        nulla aspernatur repellat tenetur. At sunt fuga, recusandae nam
+        veritatis commodi porro praesentium neque reprehenderit maxime alias
+        facere quas laboriosam quasi illo ea reiciendis asperiores dicta
+        molestias dolor vel aliquid? Consectetur dicta aspernatur nobis odit
+        quia laborum ullam! Odio veritatis laudantium odit facere expedita
+        impedit, itaque corrupti, nam atque neque adipisci esse. Maxime ullam
+        aliquid, cumque temporibus suscipit possimus? Laboriosam similique ipsum
+        sit natus illo temporibus voluptate officia perferendis consectetur
+        nesciunt iusto corrupti iste delectus molestiae, aspernatur expedita
+        illum modi alias impedit nemo et nulla est! Consequuntur rem dolore
+        vero.
+      </p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-muted">
+      <section class="py-5">
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <div class="col-md-12 col-lg-4 col-xl-3 mx-auto mb-4">
+              <div class="d-flex justify-content-center align-items-center">
+                <img
+                  src="../../static/images/logo/SPECTR-logo-new-without-S.png"
+                  class="img-fluid"
+                  width="50%"
+                  height="150"
+                  alt="SPECTR"
+                />
+              </div>
+              <p class="text-white text-center mt-3">
+                At SPECTR, we believe in delivering state-of-the-art security
+                and surveillance solutions that ensure safety for your business
+                and community. Our AI-driven systems are designed to prevent
+                theft, monitor environments, and provide real-time insights to
+                help you stay protected.
+              </p>
+            </div>
+
+            <!-- FEATURES -->
+            <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 style="color: #2ff29e" class="text-uppercase fw-bold mb-4">
+                FEATURES
+              </h6>
+              <p class="text-white">
+                <a
+                  id="footerSolutions"
+                  class="text-reset text-decoration-none"
+                  href="index"
+                  onclick="redirectToSection(event, 'section2')"
+                >
+                  Solutions
+                </a>
+              </p>
+              <p class="text-white">
+                <a href="about-us" class="text-reset text-decoration-none"
+                  >About Us</a
+                >
+              </p>
+              <p class="text-white">
+                <a href="" class="text-reset text-decoration-none"
+                  >Privacy and Policy</a
+                >
+              </p>
+            </div>
+
+            <!-- CREDITS -->
+            <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 style="color: #2ff29e" class="text-uppercase fw-bold mb-4">
+                Credits
+              </h6>
+              <p class="text-white">Apexchart</p>
+              <p class="text-white">Atropos</p>
+              <p class="text-white">Bootstrap</p>
+              <p class="text-white">Flat Icon</p>
+              <p class="text-white">Pixelcap</p>
+              <p class="text-white">Story Set</p>
+            </div>
+
+            <!-- CONTACT US -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 style="color: #2ff29e" class="text-uppercase fw-bold mb-4">
+                Contact Us
+              </h6>
+              <p class="mb-3" id="footeritem">
+                <i class="bi bi-envelope-at-fill me-1"></i>
+                spectr.detection@gmail.com
+              </p>
+              <p class="" id="footeritem">
+                <i class="bi bi-facebook me-1"></i>
+                facebook.com/SPECTR
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Copyright -->
+      <div
+        class="d-flex justify-content-center text-white text-center p-4"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © 2024 Copyright:
+        <p class="ms-1 text-reset fw-bold">SPECTR</p>
+      </div>
+    </footer>
+
+    <!-- ANIMATION -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!--ANIMATION-->
+    <script>
+      AOS.init({
+        once: true, // Ensures animation runs only once
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Check if the URL contains #section2
+        if (window.location.hash === "#section2") {
+          document
+            .getElementById("section2")
+            .scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    </script>
+
+    <script>
+      function redirectToSection(event, sectionId) {
+        event.preventDefault();
+        localStorage.setItem("scrollTo", sectionId);
+        window.location.href = "index";
+      }
+    </script>
+
+    <script type="module" src="../../static/js/login.js"></script>
+  </body>
+</html>

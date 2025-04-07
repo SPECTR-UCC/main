@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+
+    <link
+      rel="shortcut icon"
+      href="../../static/images/logo/SPECTR-logo-new.png"
+      type="image/x-icon"
+    />
+
+    <!-- Boostrap v5.3 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!--CSS -->
+    <link rel="stylesheet" href="../../static/css/contact_us.css" />
+
+    <!--FONTS-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Inter"
+      rel="stylesheet"
+    />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- EmailJS -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "RniyixCZJFDKmbHmR",
+        });
+      })();
+    </script>
+
+    <!--reCaptcha-->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+
+  <body>
+    <!--Navbar-->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark py-0 px-3 fixed-top"
+      aria-label="Offcanvas navbar large"
+      data-aos="fade-down"
+      data-aos-duration="500"
+      data-aos-once="true"
+      id="navbar"
+    >
+      <div class="container-fluid section-bg-black">
+        <div
+          class="d-flex align-items-center justify-content-center text-center"
+        >
+          <a class="navbar-brand" href="index" style="cursor: pointer">
+            <img
+              class="brand-logo"
+              src="../../static/images/logo/SPECTR-logo-new-without-S.png"
+              alt="SPECTR"
+              height="70"
+              loading="eager"
+            />
+          </a>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar2"
+          aria-controls="offcanvasNavbar2"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end text-bg-dark"
+          tabindex="-1"
+          id="offcanvasNavbar2"
+          aria-labelledby="offcanvasNavbar2Label"
+        >
+          <div class="offcanvas-header">
+            <img
+              class="brand-logo"
+              src="../../static/images/logo/SPECTR-logo-new-without-S.png"
+              alt="SPECTR"
+              height="70"
+              loading="eager"
+            />
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 gap-4">
+              <li id="nav-menu" class="nav-item px-2">
+                <a
+                  class="nav-link fw-bolder text-decoration-none"
+                  href="index"
+                  onclick="redirectToSection(event, 'section2')"
+                >
+                  Solutions
+                </a>
+              </li>
+              <li id="nav-menu" class="nav-item px-2">
+                <a class="nav-link fw-bolder" href="about-us">About Us</a>
+              </li>
+              <li id="nav-menu" class="active nav-item px-2">
+                <a class="nav-link fw-bolder" href="contact_us">Contact Us</a>
+              </li>
+              <li class="nav-item px-2">
+                <a
+                  id="btnLogin"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalLogin"
+                  class="nav-link fw-bold px-4 text-center rounded-5"
+                  >Login</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Login Modal -->
+    <div
+      class="modal fade"
+      id="modalLogin"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div
+            class="modal-body p-0 rounded-2"
+            style="background-color: #181818"
+          >
+            <div
+              class="row d-flex justify-content-md-center align-items-center"
+            >
+              <div class="row m-0">
+                <div
+                  id="leftside"
+                  class="col-lg-6 d-none d-lg-flex align-items-center custom-border-img"
+                >
+                  <div>
+                    <img
+                      src="../../static/images/Privacy policy-rafiki.png"
+                      class="img-fluid"
+                      alt="Login Icon"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="card-body p-md-3 mx-md-2">
+                    <button
+                      id="loginbtnclose"
+                      type="button"
+                      class="btn-close position-absolute p-3"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                      style="
+                        outline: none;
+                        box-shadow: none;
+                        top: 0;
+                        right: 0;
+                        filter: invert(1) brightness(100);
+                      "
+                    ></button>
+                    <form
+                      class="my-3 needs-validation"
+                      id="mainform"
+                      novalidate
+                    >
+                      <h1 id="welcome" class="fw-bold mb-2">Log In</h1>
+                      <p class="text-light mb-5 fw-lighter">
+                        Enter your credentials below.
+                      </p>
+                      <div class="form-floating mt-3">
+                        <input
+                          type="email"
+                          id="email"
+                          class="form-control"
+                          placeholder="Email"
+                          required
+                        />
+                        <label for="email">Email address:</label>
+                        <div class="invalid-feedback" id="emailFeedback">
+                          *Please enter your email.
+                        </div>
+                      </div>
+
+                      <div class="form-floating mt-4 position-relative">
+                        <input
+                          type="password"
+                          id="password"
+                          class="form-control"
+                          placeholder="Password"
+                          required
+                        />
+                        <label for="password">Password:</label>
+                        <div class="invalid-feedback" id="passwordFeedback">
+                          *Please enter your password.
+                        </div>
+                        <span
+                          id="togglePassword"
+                          class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3"
+                          style="cursor: pointer"
+                        >
+                        </span>
+                      </div>
+
+                      <p class="d-flex justify-content-end mt-3">
+                        <a
+                          id="forgotpass"
+                          class="text-decoration-none"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalForgot"
+                          style="cursor: pointer"
+                          >Forgot Password?</a
+                        >
+                      </p>
+                      <div
+                        class="d-flex align-items-center justify-content-center"
+                      >
+                        <button
+                          id="modalbtnlogin"
+                          class="btnmodal rounded-5 mt-5 fw-bolder text-dark"
+                        >
+                          LOGIN
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Pass Modal -->
+    <div
+      class="modal fade"
+      id="modalForgot"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-md modal-dialog-centered w-25">
+        <div class="modal-content d-flex flex-column">
+          <div
+            class="modal-body py-3 px-1 border rounded-2 border-1 border-light"
+            style="background-color: #181818"
+          >
+            <div
+              class="row d-flex justify-content-md-center align-items-center"
+            >
+              <div class="row m-0">
+                <div class="card-body p-md-3 mx-md-2">
+                  <button
+                    id="loginbtnclose"
+                    type="button"
+                    class="btn position-absolute p-3"
+                    aria-label="Back"
+                    style="
+                      outline: none;
+                      box-shadow: none;
+                      top: 0;
+                      left: 0;
+                      filter: invert(1) brightness(100);
+                      border: none;
+                    "
+                    data-bs-target="#modalLogin"
+                    data-bs-toggle="modal"
+                  >
+                    <i
+                      class="bi bi-arrow-left"
+                      style="outline: none; box-shadow: none"
+                    ></i>
+                  </button>
+
+                  <form
+                    class="my-3 needs-validation"
+                    id="forgotpassform"
+                    novalidate
+                  >
+                    <h1 id="welcome" class="fw-bold mb-2">Forgot Password</h1>
+                    <p class="text-light mb-5 fw-lighter">
+                      Enter your email below.
+                    </p>
+                    <div class="form-floating mb-4">
+                      <input
+                        type="email"
+                        id="forgotpassemail"
+                        class="form-control"
+                        placeholder="Email"
+                        required
+                      />
+                      <label for="email">Email address:</label>
+                      <div class="invalid-feedback">
+                        *Please enter your email.
+                      </div>
+                      <div id="noacc-feedback" style="display: none"></div>
+                    </div>
+
+                    <div
+                      class="d-flex align-items-center justify-content-center"
+                    >
+                      <a
+                        id="sendOTP"
+                        class="btnmodal fw-bold px-4 text-center rounded-5 text-decoration-none text-dark"
+                        >Submit</a
+                      >
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email sent modal -->
+    <div
+      class="modal fade"
+      id="resetEmailModal"
+      tabindex="-1"
+      aria-labelledby="resetEmailModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="resetEmailModalLabel">
+              Password Reset
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            A reset email has been sent to your email address. Please check your
+            inbox.
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- No account found modal -->
+    <div
+      class="modal fade"
+      id="noAccountModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Error</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            No account found with this email address.
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Banner -->
+    <div
+      id="successBanner"
+      class="success-banner bg-success"
+      style="display: none"
+    >
+      Your message has been sent successfully!
+    </div>
+
+    <!-- Failed Banner -->
+    <div
+      id="failedBanner"
+      class="success-banner bg-danger"
+      style="display: none"
+    ></div>
+
+    <div class="contactus-section container-fluid pb-5">
+      <div class="row d-flex flex-row justify-content-center gap-4">
+        <div class="col-lg-5 p-4 p-lg-5 mt-5">
+          <div>
+            <h2 class="title" style="margin-bottom: -15px">
+              Uncover the potential of
+            </h2>
+            <h2 class="title2">SPECTR</h2>
+          </div>
+          <div>
+            <p class="text-light py-5 fw-lighter">
+              If you're interested, have any questions, or need assistance, feel
+              free to Contact Us. Our team is ready to assist you! Contact us
+              for inquiries, support, or partnerships. We ensure quick and
+              reliable help for your security needs.
+            </p>
+
+            <div class="d-flex text-white">
+              <i class="bi bi-envelope-at-fill me-2"></i>
+              <p>Email: spectr.detection@gmail.com</p>
+            </div>
+            <div class="d-flex text-white">
+              <i class="bi bi-telephone-plus-fill me-2"></i>
+              <p>Phone: 09XXXXXXXXX</p>
+            </div>
+            <div class="d-flex text-white">
+              <i class="bi bi-geo-alt-fill me-2"></i>
+              <p>Address: North Caloocan City, Philippines</p>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="col-lg-6 p-2 p-lg-1 d-flex justify-content-center align-items-center"
+        >
+          <div class="contactus-form border rounded-3 w-75">
+            <form class="px-3 px-lg-5 py-1 py-lg-3" id="contactForm">
+              <div class="row mb-4">
+                <h2 class="title text-light mb-3 mt-3">
+                  GET CONNECTED WITH US
+                </h2>
+                <div class="col">
+                  <div
+                    data-mdb-input-init
+                    class="form-outline d-flex flex-column flex-sm-row justify-content-between gap-2"
+                  >
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        id="fname"
+                        placeholder="First name"
+                        class="form-control"
+                        required
+                      />
+                      <span
+                        class="bi bi-info-circle hint-icon mx-1 my-auto"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Only alphabets and spaces, up to 20 characters."
+                      ></span>
+                    </div>
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        id="lname"
+                        placeholder="Lastname"
+                        class="form-control"
+                        required
+                      />
+                      <span
+                        class="bi bi-info-circle hint-icon mx-1 my-auto"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Only alphabets and spaces, up to 13 characters."
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <div data-mdb-input-init class="form-outline">
+                    <div class="input-group">
+                      <input
+                        type="email"
+                        id="emailCon"
+                        class="form-control"
+                        placeholder="Email"
+                        required
+                      />
+                      <span
+                        class="bi bi-info-circle hint-icon mx-1 my-auto"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Must be a valid Gmail or Outlook email."
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <div data-mdb-input-init class="form-outline">
+                    <div class="input-group">
+                      <input
+                        type="text"
+                        id="contact_no"
+                        class="form-control"
+                        placeholder="Contact Number (09+)"
+                        required
+                      />
+                      <span
+                        class="bi bi-info-circle hint-icon mx-1 my-auto"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="top"
+                        title="Must start with '09' followed by 9 digits."
+                      ></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <!-- Message input -->
+                  <div data-mdb-input-init class="form-outline mb-4">
+                    <div class="input-group">
+                      <textarea
+                        class="form-control"
+                        id="message"
+                        rows="8"
+                        placeholder="How we may assist you?"
+                        style="resize: none"
+                        required
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Solve reCAPTCHA -->
+              <div class="row justify-content-center">
+                <div class="col-auto">
+                  <div class="recaptcha-container">
+                    <div
+                      class="g-recaptcha"
+                      data-sitekey="6LdP4awqAAAAACXb2qwuCfj_L8fZzVVIA-m2xMrv"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Flexbox approach to center the button -->
+              <div class="d-flex justify-content-center mt-3">
+                <button
+                  id="btn-submit"
+                  data-mdb-ripple-init
+                  type="button"
+                  class="btn fw-semibold px-4"
+                  onclick="sendEmail()"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-muted">
+      <section class="py-5">
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <div class="col-md-12 col-lg-4 col-xl-3 mx-auto mb-4">
+              <div class="d-flex justify-content-center align-items-center">
+                <img
+                  src="../../static/images/logo/SPECTR-logo-new-without-S.png"
+                  class="img-fluid"
+                  width="50%"
+                  height="150"
+                  alt="SPECTR"
+                />
+              </div>
+              <p class="text-white text-center mt-3">
+                At SPECTR, we believe in delivering state-of-the-art security
+                and surveillance solutions that ensure safety for your business
+                and community. Our AI-driven systems are designed to prevent
+                theft, monitor environments, and provide real-time insights to
+                help you stay protected.
+              </p>
+            </div>
+
+            <!-- FEATURES -->
+            <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 style="color: #2ff29e" class="text-uppercase fw-bold mb-4">
+                FEATURES
+              </h6>
+              <p class="text-white">
+                <a
+                  id="footerSolutions"
+                  class="text-reset text-decoration-none"
+                  href="index"
+                  onclick="redirectToSection(event, 'section2')"
+                >
+                  Solutions
+                </a>
+              </p>
+              <p class="text-white">
+                <a href="about-us" class="text-reset text-decoration-none"
+                  >About Us</a
+                >
+              </p>
+              <p class="text-white">
+                <a href="privacy_policy" class="text-reset text-decoration-none"
+                  >Privacy and Policy</a
+                >
+              </p>
+            </div>
+
+            <!-- CREDITS -->
+            <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 style="color: #2ff29e" class="text-uppercase fw-bold mb-4">
+                Credits
+              </h6>
+              <p class="text-white">Apexchart</p>
+              <p class="text-white">Atropos</p>
+              <p class="text-white">Bootstrap</p>
+              <p class="text-white">Flat Icon</p>
+              <p class="text-white">Pixelcap</p>
+              <p class="text-white">Story Set</p>
+            </div>
+
+            <!-- CONTACT US -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 style="color: #2ff29e" class="text-uppercase fw-bold mb-4">
+                Contact Us
+              </h6>
+              <p class="mb-3" id="footeritem">
+                <i class="bi bi-envelope-at-fill me-1"></i>
+                spectr.detection@gmail.com
+              </p>
+              <p class="" id="footeritem">
+                <i class="bi bi-facebook me-1"></i>
+                facebook.com/SPECTR
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Copyright -->
+      <div
+        class="d-flex justify-content-center text-white text-center p-4"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © 2024 Copyright:
+        <p class="ms-1 text-reset fw-bold">SPECTR</p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="../../static/js/login.js"></script>
+    <script src="../../static/js/contact.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Check if the URL contains #section2
+        if (window.location.hash === "#section2") {
+          document
+            .getElementById("section2")
+            .scrollIntoView({ behavior: "smooth" });
+        }
+      });
+    </script>
+
+    <script>
+      function redirectToSection(event, sectionId) {
+        event.preventDefault();
+        localStorage.setItem("scrollTo", sectionId);
+        window.location.href = "index";
+      }
+    </script>
+  </body>
+</html>

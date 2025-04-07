@@ -1,0 +1,442 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*BACKGROUND COLORS*/
+.section-bg-black {
+  background: #0b0b14;
+}
+
+.section-bg-green {
+  background: #09dcb5;
+}
+
+.section-bg-white {
+  background: #fbfbfb;
+}
+
+#detectionAlert {
+  position: fixed;
+  top: 80px;
+  /* Distance from the top */
+  right: 50px;
+  /* Distance from the right */
+  padding: 10px 20px;
+  /* Adjust padding to make the banner smaller */
+  font-size: 14px;
+  /* Smaller font size */
+  font-weight: bold;
+  border-radius: 5px;
+  /* Optional: rounded corners */
+  z-index: 9999;
+  display: none;
+  /* Initially hidden */
+  max-width: 500px;
+  /* Optional: limit the width of the banner */
+  text-align: center;
+}
+
+/*SIDEBAR*/
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  max-height: 100vh;
+  color: #ffffff;
+  overflow-y: hidden;
+  bottom: 0;
+  position: sticky;
+  top: 0;
+  transition: all 0.3s;
+  border-right: 2px solid rgb(152, 138, 138);
+}
+
+#sidebar.active {
+  margin-left: -250px;
+}
+
+#sidebar .sidebar-header {
+  background: #6d7fcc;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+#sidebar ul.components {
+  border-bottom: 1px solid #47748b;
+}
+
+#sidebar ul a {
+  color: #030303;
+  padding: 10px;
+}
+
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+  color: rgb(255, 255, 255);
+}
+
+#sidebar ul li a.active-link,
+#sidebar ul li a:hover {
+  background: #2ff29e;
+  color: #000 !important;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+#profile-menu:hover {
+  color: #0d0d0d;
+  background: #2ff29e;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+#profile-logout:hover {
+  color: #0d0d0d;
+  background: #2ff29e;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.active-link {
+  background: #2ff29e;
+  color: #000;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.active-menu {
+  background: #2ff29e;
+  color: #000;
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.dropdown-toggle::after {
+  display: inline-block;
+  margin-left: 0.5em;
+  vertical-align: 0.255em;
+  content: "";
+  border: solid transparent;
+  border-width: 0.3em 0.3em 0 0;
+  border-color: rgba(255, 255, 255, 0.5) transparent transparent transparent;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease-in-out;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+}
+
+ul.CTAs {
+  padding: 20px;
+}
+
+ul.CTAs a {
+  text-align: center;
+  font-size: 0.9em !important;
+  display: block;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+/*CONTENT*/
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.wrapper.active {
+  overflow-x: hidden;
+  /* Ensure no horizontal scroll when active */
+}
+
+.inner-content {
+  width: 100%;
+}
+
+/*CONTENT*/
+#content {
+  width: 100%;
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s;
+}
+
+.content-item {
+  display: none;
+}
+
+#stats2 {
+  width: 100%;
+  height: 0;
+}
+
+/* #shopliftingBG,
+#robberyBG,
+#totalincidentsBG {
+  background-color: #cbcecb;
+} */
+
+#detectionpermonthBG,
+#registeredaccBG,
+#shopliftingBG {
+  background-color: #f2ebeb;
+}
+
+/* #robberyheader {
+  background-color: #5f0404;
+  color: #fff;
+}
+
+#totalincidentsheader {
+  background-color: #e4a419;
+  color: #fff;
+} */
+
+#detectionpermonthheader,
+#totalincidentsheader,
+#robberyheader,
+#shopliftingheader,
+#registeredaccheader {
+  background-color: #181818;
+  color: #2ff29e;
+}
+
+#history-tr {
+  background-color: #181818;
+}
+
+#history-tr th {
+  color: #2ff29e;
+}
+
+/** CAMERA LAYOUT **/
+
+.inner-content2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Each row in camera-feed should take up half the available height */
+.camera-feed {
+  height: 100%;
+}
+
+/* Ensures video containers fill their available space */
+.video-container {
+  height: 100%;
+  position: relative;
+}
+
+/* Style for the camera frames to make them responsive */
+.camera-frame {
+  width: 100%;
+  /* Fills the container width */
+  height: auto;
+  /* Scales proportionally */
+  max-height: 100%;
+  /* Ensures it doesn't exceed container height */
+  object-fit: cover;
+  /* Maintains aspect ratio without distortion */
+}
+
+/* Adjust layout on smaller screens */
+@media (max-width: 768px) {
+  .camera-feed {
+    flex-direction: column;
+  }
+
+  .video-container {
+    height: 50%;
+    /* Each camera feed takes up half of the viewport height */
+  }
+}
+
+.fullscreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fullscreen img {
+  width: 80%;
+  height: auto;
+  max-height: 100vh;
+  max-width: 100vw;
+}
+
+.esc-notification {
+  position: absolute;
+  top: 20px;
+  color: white;
+  font-size: 1.2em;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: opacity 0.5s;
+}
+
+.close-fullscreen-btn {
+  position: absolute;
+  top: 20px;
+  left: 50px;
+  background: rgba(255, 0, 0, 0.7);
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+/* accounts css*/
+
+.acc-card {
+  width: 200px;
+}
+
+.acc-card:hover {
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.268);
+  cursor: pointer;
+}
+
+.modal-title {
+  color: #22f29e;
+}
+
+.btnmodal {
+  /* width: 30%; */
+  padding: 7px;
+  background-color: #49f8ac;
+  color: rgb(12, 12, 12);
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.btnmodal:hover {
+  background-color: #2ff29e;
+  cursor: pointer;
+  border: none;
+}
+
+#confirmdelBTN {
+  color: #2ff29e;
+}
+
+/*RESPONSIVENESS*/
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+
+  #sidebar.active {
+    margin-left: 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+@media (max-width: 576px) {
+  .hamburger span.d-none {
+    display: none;
+  }
+
+  .hamburger span.d-sm-inline {
+    display: none;
+  }
+
+  .hamburger span.d-inline {
+    display: inline;
+  }
+}
+
+@media (min-width: 577px) {
+  .hamburger span.d-inline {
+    display: none;
+  }
+
+  .hamburger span.d-sm-inline {
+    display: inline;
+  }
+}
+
+.data_table .btn {
+  padding: 5px 10px;
+  margin: 10px 3px 10px 0;
+  background-color: #181818;
+}
+
+.modal .btn-close {
+  filter: invert(1);
+  /* Makes the 'X' icon white */
+}
+
+.modal-header {
+  background-color: #000000;
+}
+
+.modal-body {
+  background-color: rgb(244, 244, 244);
+}
+
+#saveEditBtn {
+  background-color: #50a742;
+  color: white;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #0b0b14 !important;
+  color: #2ff29e !important;
+}
+
+.nav-tabs .nav-link {
+  color: #0b0b14;
+  border: 1px solid black;
+}
+
+.nav-tabs .nav-link:hover {
+  color: #2ff29e;
+  font-weight: 400;
+  border: 1px solid black;
+  background-color: #0b0b14;
+  opacity: 0.6;
+}
+
+#detection-logs {
+  background-color: #0b0b14;
+}
+
+#detection-logs th {
+  color: #2ff29e;
+}

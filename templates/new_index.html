@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPECTR</title>
+
+    <link
+      rel="shortcut icon"
+      href="../static/images/logo/SPECTR-logo-new.png"
+      type="image/x-icon"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!-- Icons-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <!--CSS-->
+    <link rel="stylesheet" href="../static/css/landing-page.css" />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!--FONTS-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--Chart-->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+
+  <body>
+    <!--Navbar-->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark py-0 px-3 fixed-top"
+      aria-label="Offcanvas navbar large"
+      data-aos="fade-down"
+      data-aos-duration="500"
+      data-aos-once="true"
+      id="navbar"
+    >
+      <div class="container-fluid section-bg-black">
+        <div
+          class="d-flex align-items-center justify-content-center text-center"
+        >
+          <a class="navbar-brand" href="" style="cursor: pointer">
+            <img
+              class="brand-logo"
+              src="../static/images/logo/SPECTR-logo-new-without-S.png"
+              alt="SPECTR"
+              height="70"
+              loading="eager"
+            />
+          </a>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar2"
+          aria-controls="offcanvasNavbar2"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end text-bg-dark"
+          tabindex="-1"
+          id="offcanvasNavbar2"
+          aria-labelledby="offcanvasNavbar2Label"
+        >
+          <div class="offcanvas-header">
+            <img
+              class="brand-logo"
+              src="../static/images/logo/SPECTR-logo-new-without-S.png"
+              alt="SPECTR"
+              height="70"
+              loading="eager"
+            />
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 gap-4">
+              <li id="nav-menu" class="nav-item px-2">
+                <a
+                  class="nav-link fw-bolder text-decoration-none"
+                  href="index"
+                  onclick="redirectToSection(event, 'section2')"
+                >
+                  Solutions
+                </a>
+              </li>
+              <li id="nav-menu" class="nav-item px-2">
+                <a class="nav-link fw-bolder" href="about-us">About Us</a>
+              </li>
+              <li id="nav-menu" class="nav-item px-2">
+                <a class="nav-link fw-bolder" href="contact_us">Contact Us</a>
+              </li>
+              <li class="nav-item px-2">
+                <a
+                  id="btnLogin"
+                  data-bs-toggle="modal"
+                  data-bs-target="#modalLogin"
+                  class="nav-link fw-bold px-4 text-center rounded-5"
+                  >Login</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="modal fade"
+      id="noAccountModal"
+      tabindex="-1"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Error</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            No account found with this email address.
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--SECTION 1: Hero Section -->
+    <section
+      class="section1"
+      style="background-image: url('../static/images/carousel-img1.png')"
+    >
+      <div class="py-4 container">
+        <div class="row justify-content-start align-items-center mt-5">
+          <div
+            id="hero-description"
+            class="col-lg-6 col-md-8 col-12 text-center text-lg-start"
+          >
+            <h1 class="hero-title mt-5">
+              Security Preemption with Enhanced Countermeasure for
+              <span id="typewriter"></span>
+            </h1>
+            <p
+              class="lead fs-5 mt-3 text-white"
+              data-aos="fade-right"
+              data-aos-duration="1500"
+              data-aos-once="true"
+            >
+              Our advanced security system provides real-time threat detection,
+              monitoring, and reporting, ensuring your safety with precision.
+            </p>
+            <div
+              data-aos="flip-up"
+              class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start"
+            >
+              <a
+                href="contact_us"
+                id="btnGetStarted"
+                data-aos="flip-up"
+                data-aos-duration="1500"
+                data-aos-once="true"
+                class="btn fw-bold px-4 py-2 mb-3 mb-sm-0"
+                >Get Started</a
+              >
+              <button
+                id="demo-video"
+                data-aos="flip-up"
+                data-aos-duration="1500"
+                data-aos-once="true"
+                class="btn fw-bold px-5 py-2"
+              >
+                <i class="fa-solid fa-circle-play me-2"></i>Demo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: What We Do -->
+    <div id="section2" class="section2 pb-5">
+      <main class="container py-5 p-sm-2">
+        <div class="d-flex flex-column text-center py-5">
+          <p
+            class="title2 text-center mt-3 text-light"
+            data-aos="zoom-in"
+            data-aos-duration="1500"
+            data-aos-once="true"
+          >
+            OUR SOLUTIONS
+          </p>
+        </div>
+        <div class="row sub-feature mx-auto">
+          <div
+            class="col-md-7"
+            data-aos="fade-right"
+            data-aos-duration="1500"
+            data-aos-once="true"
+          >
+            <h2 class="subfeature-heading">Advanced CCTV Monitoring</h2>
+            <p class="mt-4 mt-sm-5 text-white fs-5">
+              Advanced CCTV monitoring uses high-resolution cameras to detect
+              shoplifters by analyzing real-time video. This method identifies
+              suspicious activity, tracks movements, and sends alerts, enhancing
+              security and minimizing theft.
+            </p>
+          </div>
+          <div
+            data-aos="fade-left"
+            data-aos-duration="1500"
+            data-aos-once="true"
+            class="col-md-5 mx-auto d-flex justify-content-center align-items-center"
+          >
+            <img
+              id="img-section2"
+              src="../static/images/identifying-shop.png"
+              class="img-fluid rounded-5"
+              alt=""
+              loading="eager"
+            />
+          </div>
+        </div>
+
+        <div class="row sub-feature mx-auto mt-5">
+          <div class="col-md-7 order-md-2 px-2 px-sm-5">
+            <h2
+              class="subfeature-heading"
+              data-aos="flip-down"
+              data-aos-duration="1500"
+              data-aos-once="true"
+            >
+              Preventing Shoplifting
+            </h2>
+            <div
+              data-aos="fade-left"
+              data-aos-duration="1500"
+              data-aos-once="true"
+            >
+              <div class="d-flex align-items-center mt-5">
+                <i class="fa-solid fa-video fa-2xl" style="color: #2ff29e"></i>
+                <h4 class="text-white ms-2 fw-bolder">
+                  Identifying Shoplifting
+                </h4>
+              </div>
+              <p class="ms-5 mt-1 text-white">
+                Our AI-powered CCTV detects suspicious movements and analyzes
+                activity in real time to track shoplifters and enhance security.
+              </p>
+              <div class="d-flex align-items-center mt-2">
+                <i class="fa-solid fa-bell fa-2xl" style="color: #2ff29e"></i>
+                <h4 class="text-white ms-3 fw-bolder">
+                  Notification and Alarm
+                </h4>
+              </div>
+              <p class="ms-5 mt-1 text-white">
+                When shoplifting is detected, the system triggers visual alerts
+                and an alarm, enabling staff to respond immediately and prevent
+                theft.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-md-5 order-md-1"
+            data-aos="flip-left"
+            data-aos-duration="1500"
+            data-aos-once="true"
+          >
+            <img
+              id="img-section2"
+              src="../static/images/detection-removebg-preview.png"
+              class="img-fluid rounded-5"
+              alt=""
+              loading="eager"
+              style="width: 500px; height: 500px"
+            />
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- SECTION 3: Our Solutions -->
+    <div class="section3 container-fluid pb-5 pt-5">
+      <div
+        class="text-center"
+        data-aos="zoom-in"
+        data-aos-duration="1500"
+        data-aos-once="true"
+      >
+        <h1 id="section3-header" class="title">Real-Time Detection</h1>
+        <p class="fw-light fs-6 lh-base mb-3 text-light">
+          Detect potential shoplifting in real-time, preventing loss before it
+          happens.
+        </p>
+      </div>
+
+      <div class="container-sm">
+        <div class="d-flex justify-content-center">
+          <img
+            class="img-fluid w-75"
+            src="../static/images/landing.gif"
+            alt=""
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: Cards -->
+    <div
+      class="section4 text-center p-5"
+      style="background-image: url('../static/images/section2-newbg.jpg')"
+    >
+      <div class="container-fluid">
+        <p class="text-white fw-semibold subhead">
+          Enhance security with AI-powered real-time threat detection and
+          monitoring
+        </p>
+      </div>
+      <div
+        data-aos="fade-down"
+        data-aos-duration="1500"
+        data-aos-once="true"
+        class="row mt-5 justify-content-center text-center gap-4"
+      >
+        <div class="col-xxl-3 col-md-5 col-lg-5 col-sm-12 card-container">
+          <div class="section4-cards shadow rounded-3 p-4">
+            <img
+              src="../static/images/gif/detection.png"
+              alt="icon-stars"
+              class="img-fluid card-img"
+              loading="eager"
+            />
+            <h1 class="fw-bold fs-4 pb-2">Gesture Detection</h1>
+            <p class="text-white fw-light fs-6">
+              Gesture detection allows the system to recognize movements linked
+              to shoplifting, minimizing false alarms and enhancing overall
+              security efficiency for better store protection.
+            </p>
+          </div>
+        </div>
+        <div class="col-xxl-3 col-md-5 col-lg-5 col-sm-12 card-container">
+          <div class="section4-cards shadow rounded-3 p-4">
+            <img
+              src="../static/images/gif/24-7.png"
+              alt="icon-stars"
+              class="img-fluid card-img"
+              loading="eager"
+            />
+            <h1 class="fw-bold fs-4 pb-2">24/7 Surveillance</h1>
+            <p class="text-white fw-light fs-6">
+              The system ensures continuous 24/7 surveillance, making it ideal
+              for establishments that operate round the clock, such as
+              convenience stores and coffee shops.
+            </p>
+          </div>
+        </div>
+        <div class="col-xxl-3 col-md-10 col-lg-5 col-sm-12 card-container">
+          <div class="section4-cards shadow rounded-3 p-4">
+            <img
+              src="../static/images/gif/alert.png"
+              alt="icon-stars"
+              class="img-fluid card-img"
+              loading="eager"
+            />
+            <h1 class="fw-bold fs-4 pb-2">Actionable Alert</h1>
+            <p class="text-white fw-light fs-6">
+              Actionable alerts give store staff or security teams clear
+              notifications, allowing them to quickly respond to suspicious
+              activities and stop potential incidents from getting worse.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: Cards 2 -->
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col text-center mb-5">
+          <h1 class="display-4 fw-bolder">
+            Increased Safety and Intelligent monitoring
+          </h1>
+          <p class="fw-semibold">
+            Strengthen your security with smart, technology built for precision
+            and efficiency.
+          </p>
+        </div>
+      </div>
+      <div class="row px-3 align-items-center justify-content-center">
+        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+          <div
+            class="card text-dark click-col shadow-lg p-3"
+            style="background: linear-gradient(to bottom, #000000, #35374b)"
+            data-aos="fade-up"
+            data-aos-duration="500"
+            data-aos-once="true"
+          >
+            <div class="card-body">
+              <div class="mb-4">
+                <i class="bi bi-bar-chart-line-fill text-white"></i>
+                <small class="card-meta mb-2 text-white"
+                  >Real-Time Data Insights</small
+                >
+              </div>
+              <h4 class="card-title mt-0 mb-3">
+                <p class="text-uppercase fs-3 text-green" href="">
+                  Maximize Operational Efficiency
+                </p>
+              </h4>
+              <small class="text-light fw-light"
+                >Leverage data analytics to make informed decisions, enhancing
+                overall performance and reducing security risks. Our system
+                monitors and adapts to changes in real time.</small
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+          <div
+            class="card text-dark click-col shadow-lg p-3"
+            style="background: linear-gradient(to bottom, #000000, #35374b)"
+            data-aos="fade-up"
+            data-aos-duration="700"
+            data-aos-once="true"
+          >
+            <div class="card-body">
+              <div class="mb-4">
+                <i class="bi bi-bar-chart-line-fill text-white"></i>
+                <small class="card-meta mb-2 text-secondary text-white"
+                  >Seamless Integration</small
+                >
+              </div>
+              <h4 class="card-title mt-0 mb-3">
+                <p class="text-green text-uppercase fs-3" href="">
+                  Connect Effortlessly Across Platforms
+                </p>
+              </h4>
+              <small class="text-light fw-light"
+                >Integrate our system with your existing infrastructure without
+                disruptions. Ensure smooth transitions and minimal downtime for
+                maximum productivity.</small
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
+          <div
+            class="card text-dark click-col shadow-lg p-3"
+            style="background: linear-gradient(to bottom, #000000, #35374b)"
+            data-aos="fade-up"
+            data-aos-duration="500"
+            data-aos-once="true"
+          >
+            <div class="card-body">
+              <div class="mb-4">
+                <i class="bi bi-bar-chart-line-fill text-white"></i>
+                <small class="card-meta mb-2 text-white"
+                  >AI-Powered Surveillance</small
+                >
+              </div>
+              <h4 class="card-title mt-0 mb-3">
+                <p class="text-green text-uppercase fs-3" href="">
+                  Advanced Risk Detection
+                </p>
+              </h4>
+              <small class="text-light fw-light"
+                >Our AI is trained using thousands of images through machine
+                learning, enabling it to detect shoplifting threat, providing
+                protection and peace of mind for your organization.</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 6: How It Works -->
+    <div
+      class="container d-flex flex-column align-items-center justify-content-center mt-5 mb-5 p-2 px-3 px-md-3 px-sm-3 p-sm-5 p-md-4"
+    >
+      <h1 id="txtHowItWorks" class="fw-bold text-center mb-5">
+        Shoplifting Detection Process Overview
+      </h1>
+
+      <video
+        id="howItWorksH"
+        class="w-75"
+        autoplay
+        loop
+        playsinline
+        muted
+        controlslist="nodownload nofullscreen noremoteplayback"
+      >
+        <source
+          src="../static/images/videos/flowchart_largescreen.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      <video
+        id="howItWorksV"
+        class="w-75"
+        autoplay
+        loop
+        playsinline
+        muted
+        controlslist="nodownload nofullscreen noremoteplayback"
+      >
+        <source
+          src="../static/images/videos/flowchart_smallscreen.mp4"
+          type="video/mp4"
+        />
+      </video>
+    </div>
+
+    <!-- SECTION 7: Charts -->
+    <div class="container my-5" id="pieChart">
+      <div class="row d-flex mx-3">
+        <div class="col-lg-7 col-md-12 col-sm-9">
+          <h5 class="text-center fw-semibold">
+            Shoplifting Frequency in Convenience Stores
+          </h5>
+          <div id="chart1"></div>
+        </div>
+        <div
+          class="col-lg-5 col-md-12 col-sm-10 d-flex justify-content-center align-items-center"
+        >
+          <p class="mt-3 lead">
+            Based on the survey conducted by SPECTR, as shown on the graph, most
+            of the establishments encounter shoplifting monthly followed by
+            daily and weekly occurrence. <br /><br />
+            This indicates that shoplifting is a serious matter that is rampant
+            in our community which an effective surveillance system can lessen
+            and prevent. We at SPECTR, aim to help in issues like this.
+          </p>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mx-3 mt-5">
+        <div
+          class="col-lg-7 col-md-12 col-sm-10 order-sm-2 order-lg-1 d-flex justify-content-center align-items-center"
+        >
+          <p class="text-start text-lg-end mt-3 lead">
+            In addition, the survey showed that the majority of the
+            establishments review their CCTV Footage only after a shoplifting
+            incident happens. <br /><br />
+            This data highlights the need of implementing an effective system in
+            preventing shoplifting incidents in our community. The SPECTR is
+            capable of bringing precise detection and reliable alarm system.
+          </p>
+        </div>
+        <div class="col-lg-5 col-md-12 col-sm-9 order-sm-1 order-lg-2">
+          <h5 class="text-center fw-semibold m-2">
+            How often CCTVs are reviewed
+          </h5>
+          <div id="chart2"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start text-muted">
+      <section class="py-5">
+        <div class="container text-center text-md-start mt-5">
+          <div class="row mt-3">
+            <div class="col-md-12 col-lg-4 col-xl-3 mx-auto mb-4">
+              <div class="d-flex justify-content-center align-items-center">
+                <img
+                  src="../static/images/logo/SPECTR-logo-new-without-S.png"
+                  class="img-fluid"
+                  loading="eager"
+                  width="50%"
+                  height="150"
+                  alt="SPECTR"
+                />
+              </div>
+              <p class="text-white text-center mt-3">
+                At SPECTR, we believe in delivering state-of-the-art security
+                and surveillance solutions that ensure safety for your business
+                and community. Our AI-driven systems are designed to prevent
+                theft, monitor environments, and provide real-time insights to
+                help you stay protected.
+              </p>
+            </div>
+
+            <!-- FEATURES -->
+            <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
+              <h6 style="color: #2ff29e" class="text-uppercase fw-bold mb-4">
+                FEATURES
+              </h6>
+              <p class="text-white">
+                <a
+                  class="nav-link text-reset text-decoration-none"
+                  href="index"
+                  onclick="redirectToSection(event, 'section2')"
+                >
+                  Solutions
+                </a>
+              </p>
+              <p class="text-white">
+                <a href="about-us" class="text-reset text-decoration-none"
+                  >About Us</a
+                >
+              </p>
+              <p class="text-white">
+                <a href="privacy_policy" class="text-reset text-decoration-none"
+                  >Privacy and Policy</a
+                >
+              </p>
+            </div>
+
+            <!-- CREDITS -->
+            <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-4">
+              <!-- Links -->
+              <h6 style="color: #2ff29e" class="text-uppercase fw-bold mb-4">
+                Credits
+              </h6>
+              <p class="text-white">Apexchart</p>
+              <p class="text-white">Atropos</p>
+              <p class="text-white">Bootstrap</p>
+              <p class="text-white">Flat Icon</p>
+              <p class="text-white">Pixelcap</p>
+              <p class="text-white">Story Set</p>
+            </div>
+
+            <!-- CONTACT US -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+              <h6 style="color: #2ff29e" class="text-uppercase fw-bold mb-4">
+                Contact Us
+              </h6>
+              <p class="mb-3" id="footeritem">
+                <i class="bi bi-envelope-at-fill me-1"></i>
+                spectr.detection@gmail.com
+              </p>
+              <p class="" id="footeritem">
+                <i class="bi bi-facebook me-1"></i>
+                facebook.com/SPECTR
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Copyright -->
+      <div
+        class="d-flex justify-content-center text-white text-center p-4"
+        style="background-color: rgba(0, 0, 0, 0.05)"
+      >
+        © 2024 Copyright:
+        <p class="ms-1 text-reset fw-bold">SPECTR</p>
+      </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div
+      class="modal fade"
+      id="modalLogin"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div
+            class="modal-body p-0 rounded-2"
+            style="background-color: #181818"
+          >
+            <div
+              class="row d-flex justify-content-md-center align-items-center"
+            >
+              <div class="row m-0">
+                <div
+                  id="leftside"
+                  class="col-lg-6 d-none d-lg-flex align-items-center custom-border-img"
+                >
+                  <div>
+                    <img
+                      src="../static/images/Privacy policy-rafiki.png"
+                      class="img-fluid"
+                      loading="eager"
+                      alt="Login Icon"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="card-body p-3 mx-2">
+                    <button
+                      id="loginbtnclose"
+                      type="button"
+                      class="btn-close position-absolute p-3"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                      style="
+                        outline: none;
+                        box-shadow: none;
+                        top: 0;
+                        right: 0;
+                        filter: invert(1) brightness(100);
+                      "
+                    ></button>
+                    <form
+                      class="my-3 needs-validation"
+                      id="mainform"
+                      novalidate
+                    >
+                      <h1 id="welcome" class="fw-bold mb-2">Log In</h1>
+                      <p class="text-light mb-5 fw-lighter">
+                        Enter your credentials below.
+                      </p>
+                      <div class="form-floating mt-3">
+                        <input
+                          type="email"
+                          id="email"
+                          class="form-control"
+                          placeholder="Email"
+                          required
+                        />
+                        <label for="email">Email address:</label>
+                        <div class="invalid-feedback" id="emailFeedback">
+                          *Please enter your email.
+                        </div>
+                      </div>
+
+                      <div class="form-floating mt-4 position-relative">
+                        <input
+                          type="password"
+                          id="password"
+                          class="form-control"
+                          placeholder="Password"
+                          required
+                        />
+                        <label for="password">Password:</label>
+                        <div class="invalid-feedback" id="passwordFeedback">
+                          *Please enter your password.
+                        </div>
+                        <span
+                          id="togglePassword"
+                          class="bi bi-eye position-absolute top-50 end-0 translate-middle-y me-3"
+                          style="cursor: pointer"
+                        ></span>
+                      </div>
+
+                      <p class="d-flex justify-content-end mt-3">
+                        <a
+                          id="forgotpass"
+                          class="text-decoration-none"
+                          data-bs-toggle="modal"
+                          data-bs-target="#modalForgot"
+                          style="cursor: pointer"
+                          >Forgot Password?</a
+                        >
+                      </p>
+                      <div
+                        class="d-flex align-items-center justify-content-center"
+                      >
+                        <button
+                          id="modalbtnlogin"
+                          class="btnmodal rounded-5 mt-5 fw-bolder text-dark"
+                        >
+                          LOGIN
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forgot Pass Modal -->
+    <div
+      class="modal fade"
+      id="modalForgot"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content d-flex flex-column">
+          <div
+            class="modal-body py-3 px-1 border rounded-2 border-1 border-light"
+            style="background-color: #181818"
+          >
+            <div
+              class="row d-flex justify-content-md-center align-items-center"
+            >
+              <div class="row m-0">
+                <div class="card-body p-md-3 mx-md-2">
+                  <button
+                    id="loginbtnclose"
+                    type="button"
+                    class="btn position-absolute p-3"
+                    aria-label="Back"
+                    style="
+                      outline: none;
+                      box-shadow: none;
+                      top: 0;
+                      left: 0;
+                      filter: invert(1) brightness(100);
+                      border: none;
+                    "
+                    data-bs-target="#modalLogin"
+                    data-bs-toggle="modal"
+                  >
+                    <i
+                      class="bi bi-arrow-left"
+                      style="outline: none; box-shadow: none"
+                    ></i>
+                  </button>
+
+                  <form
+                    class="my-3 needs-validation"
+                    id="forgotpassform"
+                    novalidate
+                  >
+                    <h1 id="welcome" class="fw-bold mb-2">Forgot Password</h1>
+                    <p class="text-light mb-5 fw-lighter">
+                      Enter your email below.
+                    </p>
+                    <div class="form-floating mb-4">
+                      <input
+                        type="email"
+                        id="forgotpassemail"
+                        class="form-control"
+                        placeholder="Email"
+                        required
+                      />
+                      <label for="email">Email address:</label>
+                      <div class="invalid-feedback">
+                        *Please enter your email.
+                      </div>
+                      <div id="noacc-feedback" style="display: none"></div>
+                    </div>
+
+                    <div
+                      class="d-flex align-items-center justify-content-center"
+                    >
+                      <a
+                        id="sendOTP"
+                        class="btnmodal fw-bold px-4 text-center rounded-5 text-decoration-none text-dark"
+                        >Submit</a
+                      >
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email sent modal -->
+    <div
+      class="modal fade"
+      id="resetEmailModal"
+      tabindex="-1"
+      aria-labelledby="resetEmailModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #181818">
+            <h5 class="modal-title text-light" id="resetEmailModalLabel">
+              Password Reset
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+              style="
+                outline: none;
+                box-shadow: none;
+                filter: invert(1) brightness(100);
+              "
+            ></button>
+          </div>
+          <div class="modal-body text-light" style="background-color: #181818">
+            A reset email has been sent to your email address. Please check your
+            inbox.
+          </div>
+
+          <div class="modal-footer" style="background-color: #181818">
+            <button
+              type="button"
+              class="btn btn-modal text-light"
+              data-bs-dismiss="modal"
+            >
+              OK
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Demo Upload Modal -->
+    <div
+      class="modal fade"
+      id="modalDemo"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="demoModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div
+            class="modal-body p-0 rounded-2"
+            style="background-color: #181818"
+          >
+            <div
+              class="row d-flex justify-content-md-center align-items-center"
+            >
+              <div class="row m-0">
+                <!-- Left Side Image -->
+                <div
+                  id="leftside"
+                  class="col-lg-6 d-none d-lg-flex align-items-center custom-border-img"
+                >
+                  <div>
+                    <img
+                      src="../static/images/upload.png"
+                      class="img-fluid"
+                      loading="eager"
+                      alt="Upload Icon"
+                    />
+                  </div>
+                </div>
+
+                <!-- Right Side Content -->
+                <div class="col-lg-6">
+                  <div class="card-body p-md-3 mx-md-2">
+                    <button
+                      id="demoBtnClose"
+                      type="button"
+                      class="btn-close position-absolute p-3"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                      style="
+                        outline: none;
+                        box-shadow: none;
+                        top: 0;
+                        right: 0;
+                        filter: invert(1) brightness(100);
+                      "
+                    ></button>
+                    <h1 id="demoTitle" class="fw-bold mb-2 text-white">
+                      Upload File
+                    </h1>
+                    <p class="text-light mb-4 fw-lighter">
+                      Drag and drop your image or video file here, or click to
+                      browse to test our model.
+                    </p>
+
+                    <!-- Drag and Drop Area -->
+                    <div
+                      id="dropArea"
+                      class="drop-area rounded-3 text-center p-4"
+                    >
+                      <input
+                        type="file"
+                        id="fileInput"
+                        accept="image/*,video/*"
+                        hidden
+                      />
+                      <p class="text-light">Drag & Drop files here</p>
+                      <button id="browseBtn" class="btn btn-secondary mt-2">
+                        Browse
+                      </button>
+                      <p id="fileName" class="text-light mt-2"></p>
+                    </div>
+
+                    <!-- Upload Button -->
+                    <div
+                      class="d-flex align-items-center justify-content-center"
+                    >
+                      <button
+                        id="uploadBtn"
+                        class="btnmodal rounded-5 mt-4 fw-bolder text-dark"
+                      >
+                        UPLOAD
+                      </button>
+                    </div>
+
+                    <p
+                      id="uploadStatus"
+                      class="text-center text-light mt-2"
+                    ></p>
+
+                    <!-- Download Processed File -->
+                    <div class="text-center">
+                      <a
+                        id="downloadLink"
+                        class="btn btn-primary mt-2"
+                        style="display: none"
+                        download
+                        >Download</a
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function redirectToSection(event, sectionId) {
+        event.preventDefault();
+        localStorage.setItem("scrollTo", sectionId);
+        window.location.href = "index";
+      }
+    </script>
+
+    <!--SMOOTH SCROLL-->
+    <script>
+      window.onload = function () {
+        var sectionId = localStorage.getItem("scrollTo");
+
+        if (sectionId) {
+          console.log("Scroll to: " + sectionId);
+          var target = $("#" + sectionId);
+          if (target.length) {
+            console.log("Found the target section: " + sectionId);
+            $("html, body").animate(
+              {
+                scrollTop: target.offset().top,
+              },
+              500
+            );
+          } else {
+            console.log("Target section not found: " + sectionId);
+          }
+
+          localStorage.removeItem("scrollTo");
+        }
+      };
+    </script>
+
+    <!-- ANIMATION -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!--ANIMATION-->
+    <script>
+      AOS.init({
+        once: true, // Ensures animation runs only once
+      });
+    </script>
+
+    <!--SCROLL-->
+    <script>
+      window.onscroll = function () {
+        changeNavbarColor();
+      };
+
+      function changeNavbarColor() {
+        var navbar = document.getElementById("navbar");
+        if (document.documentElement.scrollTop > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      }
+    </script>
+
+    <!--TYPEWRITER-->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const text = "Threat Response...";
+        const speed = 100; // Typing speed in ms
+        let index = 0;
+
+        function typeWriter() {
+          if (index < text.length) {
+            document.getElementById("typewriter").innerHTML +=
+              text.charAt(index);
+            index++;
+            setTimeout(typeWriter, speed);
+          }
+        }
+
+        typeWriter();
+      });
+    </script>
+
+    <!--CHART-->
+    <script>
+      // CHART 1
+      var colors = ["#2ff29e", "#0b0b14", "#2ff29e", "#0b0b14", "#0b0b14"];
+      var optionsChart1 = {
+        series: [
+          {
+            data: [38, 12, 32, 4, 14],
+          },
+        ],
+        chart: {
+          height: 350,
+          type: "bar",
+          toolbar: {
+            show: false,
+          },
+        },
+        colors: colors,
+        plotOptions: {
+          bar: {
+            columnWidth: "50%",
+            distributed: true,
+          },
+        },
+        dataLabels: {
+          enabled: false,
+        },
+        legend: {
+          show: false,
+        },
+        xaxis: {
+          categories: ["Weekly", "Monthly", "Daily", "Rarely", "Never"],
+          labels: {
+            style: {
+              fontSize: "12px",
+            },
+          },
+        },
+        tooltip: {
+          enabled: true,
+          shared: false, // Disable shared tooltip
+          custom: function ({ seriesIndex, dataPointIndex, w }) {
+            var value = w.config.series[seriesIndex].data[dataPointIndex];
+            return (
+              '<div style="background-color: transparent; padding: 12px;" class="arrow_box"><b>Total:</b> ' +
+              value +
+              "%</div>"
+            ); // Custom tooltip content
+          },
+        },
+      };
+
+      var chart1 = new ApexCharts(
+        document.querySelector("#chart1"),
+        optionsChart1
+      );
+      chart1.render();
+
+      var optionsChart2 = {
+        series: [2, 2, 30, 20, 44],
+        chart: {
+          width: "100%",
+          height: "100%",
+          type: "pie",
+        },
+        labels: ["Monthly", "Rarely", "Weekly", "Daily", "After an incident"],
+        colors: ["#173427", "#173427", "#2db67b", "#1e7550", "#2ff29e"],
+        plotOptions: {
+          pie: {
+            dataLabels: {
+              offset: -5,
+            },
+          },
+        },
+        grid: {
+          padding: {
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+          },
+        },
+        dataLabels: {
+          style: {
+            colors: ["#fff"], // Set text color to #0b0b14
+          },
+          formatter(val, opts) {
+            const name = opts.w.globals.labels[opts.seriesIndex];
+            return [name, val.toFixed(1) + "%"];
+          },
+        },
+        legend: {
+          show: false,
+        },
+      };
+
+      var chart2 = new ApexCharts(
+        document.querySelector("#chart2"),
+        optionsChart2
+      );
+      chart2.render();
+    </script>
+
+    <script type="module" src="../static/js/login.js"></script>
+    <script type="module" src="../static/js/uploadFile.js"></script>
+  </body>
+</html>

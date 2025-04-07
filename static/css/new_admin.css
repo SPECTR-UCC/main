@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*BACKGROUND COLORS*/
+.section-bg-black {
+  background: #0b0b14;
+}
+
+.section-bg-green {
+  background: #09dcb5;
+}
+
+.section-bg-white {
+  background: #fbfbfb;
+}
+
+body {
+  background-color: #131313;
+}
+
+#activeuserheader {
+  background-color: #0b0b14;
+  color: #2ff29e;
+}
+
+#activeuserBG {
+  background-color: #3a3939;
+  color: white;
+}
+
+#inactiveuserheader {
+  background-color: #0b0b14;
+  color: #2ff29e;
+}
+
+#inactiveuserBG {
+  background-color: #3a3939;
+  color: white;
+}
+
+#suspendeduserheader {
+  background-color: #000000;
+  color: #e8151f;
+}
+
+#suspendeduserBG {
+  background-color: #3a3939;
+  color: white;
+}
+
+#usageheader {
+  background-color: #0b0b14;
+  color: #2ff29e;
+}
+
+#linegraphBG {
+  background-color: #3a3939;
+}
+
+#accmanagementheader {
+  background-color: #0b0b14;
+  color: #2ff29e;
+}
+
+#tblAccManagementBG {
+  background-color: #1f1f1f;
+}
+
+#tr-accmanagement {
+  background-color: #0b0b14;
+}
+
+#tr-accmanagement th {
+  color: #2ff29e;
+}
+
+#donutgraphBG {
+  background-color: #424242;
+}
+
+#btn-addaccount {
+  background-color: #0b0b14;
+  color: #2ff29e;
+}
+
+#totalearningsheader {
+  background-color: #000000;
+  color: #12ed12;
+}
+
+#totalearningsBG {
+  background-color: #1f1f1f;
+  color: white;
+}
+
+#activitylogsheader {
+  background-color: #0b0b14;
+  color: #2ff29e;
+}
+
+#activitylogsBG {
+  background-color: #1f1f1f;
+  color: white;
+}
+
+#example tbody td {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+nav {
+  background-color: #0b0b14;
+}
+
+.content {
+  margin-top: 100px;
+}
+
+.data_table .btn {
+  padding: 5px 10px;
+  margin: 10px 7px 10px 0;
+}
+
+.dt-buttons .buttons-csv {
+  background-color: #48db72 !important;
+  color: rgb(232, 232, 232) !important;
+}
+
+.dt-buttons .buttons-excel {
+  background-color: green !important;
+  color: white !important;
+}
+
+.dt-buttons .buttons-pdf {
+  background-color: red !important;
+  color: white !important;
+}
+
+@media (max-width: 320px) {
+  .content {
+    margin-top: 150px;
+  }
+}
+
+/* Change text color for DataTables elements */
+.dataTables_wrapper .dataTables_length label,
+.dataTables_wrapper .dataTables_filter label,
+.dataTables_wrapper .dataTables_info {
+  color: white;
+}
+
+/* Change the text color of "No matching records found" to white */
+.dataTables_empty {
+  color: white !important;
+  /* Set text color to white */
+}
